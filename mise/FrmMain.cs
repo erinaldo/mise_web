@@ -27,8 +27,7 @@ namespace mise
         private IVendaRepo _vendaRepo;
         private FormaPagamentoRepo _formaPagamentoRepo;
         private Balanca _balanca;
-        private Impressora _impressora;
-
+        
         private Logger _logger;
 
         private Font FONT_BOLD;
@@ -37,6 +36,8 @@ namespace mise
         private Venda venda;
 
         private long _idUltimaVenda;
+
+        private Impressora Impressora { get { return Impressora.Instance; } }
 
         public FrmMain()
         {
@@ -64,17 +65,17 @@ namespace mise
             catch (Exception ex)
             {
                 _logger.Log(ex);
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Não foi possível conectar com a balança. Reinicie o sistema.");
             }
 
             try
             {
-                _impressora = Impressora.Instance;
+                var i = Impressora.Instance;
             }
             catch (Exception ex)
             {
                 _logger.Log(ex);
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Não foi possível conectar com a impressora. Reinicie o sistema.");
             }
 
             timerDataHora.Interval = 1000;
@@ -195,8 +196,8 @@ namespace mise
                         else
                         {
                             Cupom cupom = new Cupom(_vendaRepo.Obter(_idUltimaVenda));
-                            _impressora.Imprimir(cupom.Gerar());
-                            _impressora.CortarPapel();
+                            Impressora.Imprimir(cupom.Gerar());
+                            Impressora.CortarPapel();
                         }
                     }
                     catch (MiseException me)
@@ -235,7 +236,7 @@ namespace mise
                     break;
                 case Keys.Q:
                     e.Handled = e.SuppressKeyPress = true;
-                    _impressora.AbrirGaveta();
+                    Impressora.AbrirGaveta();
                     break;
                 case Keys.W:
                     sair();
@@ -551,8 +552,8 @@ namespace mise
             try
             {
                 ResumoDiario resumo = new ResumoDiario(DateTime.Now, _vendaRepo, _formaPagamentoRepo, LancamentoRepo.Instance);
-                _impressora.Imprimir(resumo.Gerar());
-                _impressora.CortarPapel();
+                Impressora.Imprimir(resumo.Gerar());
+                Impressora.CortarPapel();
             }
             catch (MiseException me)
             {
@@ -574,7 +575,7 @@ namespace mise
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             _balanca.FecharConexao();
-            _impressora.FecharConexao();
+            Impressora.FecharConexao();
 
             try
             {

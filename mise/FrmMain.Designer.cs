@@ -53,6 +53,9 @@ namespace mise
             this.label4 = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
             this.grpItem = new System.Windows.Forms.GroupBox();
+            this.txtQtd = new mise.component.NumTextBox();
+            this.txtPreco = new mise.component.NumTextBox();
+            this.txtCodigo = new mise.component.NumTextBox();
             this.grpTotal = new System.Windows.Forms.GroupBox();
             this.grpProduto = new System.Windows.Forms.GroupBox();
             this.lblProduto = new System.Windows.Forms.Label();
@@ -76,13 +79,10 @@ namespace mise
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.lblDataHora = new System.Windows.Forms.Label();
-            this.timerDataHora = new System.Windows.Forms.Timer(this.components);
-            this.txtQtd = new mise.component.NumTextBox();
-            this.txtPreco = new mise.component.NumTextBox();
-            this.txtCodigo = new mise.component.NumTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.bgWorker = new System.ComponentModel.BackgroundWorker();
+            this.timerDataHora = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridItem)).BeginInit();
             this.grpItem.SuspendLayout();
             this.grpTotal.SuspendLayout();
@@ -248,11 +248,11 @@ namespace mise
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.Location = new System.Drawing.Point(7, 31);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(80, 24);
+            this.lblTotal.Size = new System.Drawing.Size(116, 31);
             this.lblTotal.TabIndex = 6;
             this.lblTotal.Text = "R$ 0,00";
             // 
@@ -282,12 +282,12 @@ namespace mise
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(261, 0);
+            this.label4.Location = new System.Drawing.Point(312, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 18);
+            this.label4.Size = new System.Drawing.Size(62, 18);
             this.label4.TabIndex = 12;
-            this.label4.Text = "F3 - Quantidade";
+            this.label4.Text = "F3 - Qtd";
             // 
             // lblPreco
             // 
@@ -314,12 +314,57 @@ namespace mise
             this.grpItem.TabStop = false;
             this.grpItem.Text = "Item";
             // 
+            // txtQtd
+            // 
+            this.txtQtd.AutoComma = false;
+            this.txtQtd.Dec = 3;
+            this.txtQtd.Location = new System.Drawing.Point(11, 47);
+            this.txtQtd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtQtd.MaxLength = 6;
+            this.txtQtd.Name = "txtQtd";
+            this.txtQtd.Size = new System.Drawing.Size(103, 26);
+            this.txtQtd.TabIndex = 1;
+            this.txtQtd.ReadOnlyChanged += new System.EventHandler(this.txtQtd_ReadOnlyChanged);
+            this.txtQtd.TextChanged += new System.EventHandler(this.txtQtd_TextChanged);
+            this.txtQtd.Enter += new System.EventHandler(this.txtQtd_Enter);
+            this.txtQtd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQtd_KeyDown);
+            this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtd_KeyPress);
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.AutoComma = false;
+            this.txtPreco.Dec = 2;
+            this.txtPreco.Location = new System.Drawing.Point(11, 159);
+            this.txtPreco.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPreco.MaxLength = 6;
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(103, 26);
+            this.txtPreco.TabIndex = 13;
+            this.txtPreco.ReadOnlyChanged += new System.EventHandler(this.txtPreco_ReadOnlyChanged);
+            this.txtPreco.Enter += new System.EventHandler(this.txtPreco_Enter);
+            this.txtPreco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPreco_KeyDown);
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.AutoComma = true;
+            this.txtCodigo.Dec = 0;
+            this.txtCodigo.Location = new System.Drawing.Point(11, 103);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCodigo.MaxLength = 18;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(206, 26);
+            this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.TabStop = false;
+            this.txtCodigo.ReadOnlyChanged += new System.EventHandler(this.txtCodigo_ReadOnlyChanged);
+            this.txtCodigo.Enter += new System.EventHandler(this.txtCodigo_Enter);
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
+            // 
             // grpTotal
             // 
             this.grpTotal.Controls.Add(this.lblTotal);
             this.grpTotal.Location = new System.Drawing.Point(12, 240);
             this.grpTotal.Name = "grpTotal";
-            this.grpTotal.Size = new System.Drawing.Size(224, 84);
+            this.grpTotal.Size = new System.Drawing.Size(224, 93);
             this.grpTotal.TabIndex = 24;
             this.grpTotal.TabStop = false;
             this.grpTotal.Text = "TOTAL";
@@ -462,12 +507,12 @@ namespace mise
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(160, 0);
+            this.label5.Location = new System.Drawing.Point(233, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 18);
+            this.label5.Size = new System.Drawing.Size(71, 18);
             this.label5.TabIndex = 28;
-            this.label5.Text = "F2 - Finalizar";
+            this.label5.Text = "F2 - Total";
             // 
             // label6
             // 
@@ -532,10 +577,6 @@ namespace mise
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1252, 46);
             this.flowLayoutPanel1.TabIndex = 33;
             // 
-            // bgWorker
-            // 
-            this.bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorker_DoWork);
-            // 
             // lblDataHora
             // 
             this.lblDataHora.AutoSize = true;
@@ -547,55 +588,6 @@ namespace mise
             this.lblDataHora.TabIndex = 6;
             this.lblDataHora.Text = "99/99/9999 99:99";
             // 
-            // timerDataHora
-            // 
-            this.timerDataHora.Tick += new System.EventHandler(this.timerDataHora_Tick);
-            // 
-            // txtQtd
-            // 
-            this.txtQtd.AutoComma = false;
-            this.txtQtd.Dec = 3;
-            this.txtQtd.Location = new System.Drawing.Point(11, 47);
-            this.txtQtd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtQtd.MaxLength = 6;
-            this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(103, 26);
-            this.txtQtd.TabIndex = 1;
-            this.txtQtd.ReadOnlyChanged += new System.EventHandler(this.txtQtd_ReadOnlyChanged);
-            this.txtQtd.TextChanged += new System.EventHandler(this.txtQtd_TextChanged);
-            this.txtQtd.Enter += new System.EventHandler(this.txtQtd_Enter);
-            this.txtQtd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQtd_KeyDown);
-            this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtd_KeyPress);
-            // 
-            // txtPreco
-            // 
-            this.txtPreco.AutoComma = false;
-            this.txtPreco.Dec = 2;
-            this.txtPreco.Location = new System.Drawing.Point(11, 159);
-            this.txtPreco.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtPreco.MaxLength = 6;
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(103, 26);
-            this.txtPreco.TabIndex = 13;
-            this.txtPreco.ReadOnlyChanged += new System.EventHandler(this.txtPreco_ReadOnlyChanged);
-            this.txtPreco.Enter += new System.EventHandler(this.txtPreco_Enter);
-            this.txtPreco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPreco_KeyDown);
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.AutoComma = true;
-            this.txtCodigo.Dec = 0;
-            this.txtCodigo.Location = new System.Drawing.Point(11, 103);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCodigo.MaxLength = 18;
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(206, 26);
-            this.txtCodigo.TabIndex = 0;
-            this.txtCodigo.TabStop = false;
-            this.txtCodigo.ReadOnlyChanged += new System.EventHandler(this.txtCodigo_ReadOnlyChanged);
-            this.txtCodigo.Enter += new System.EventHandler(this.txtCodigo_Enter);
-            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -606,6 +598,14 @@ namespace mise
             this.label1.Size = new System.Drawing.Size(13, 18);
             this.label1.TabIndex = 33;
             this.label1.Text = "|";
+            // 
+            // bgWorker
+            // 
+            this.bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorker_DoWork);
+            // 
+            // timerDataHora
+            // 
+            this.timerDataHora.Tick += new System.EventHandler(this.timerDataHora_Tick);
             // 
             // FrmMain
             // 

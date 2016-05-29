@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8AFE3D07-F31C-44CB-9234-707B66C44995}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>mise</RootNamespace>
+    <AssemblyName>mise</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\junji\Desktop\publish_mise\20160527_18\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>en</TargetCulture>
+    <ProductName>mise</ProductName>
+    <PublisherName>junji</PublisherName>
+    <SuiteName>mise</SuiteName>
+    <ApplicationRevision>42</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>59F717FC460B4B5D065D98DCB7766AA43001616E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>mise_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>mise.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>mise.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="component\FadingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="component\NumTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dbutil\DBUtil.cs" />
+    <Compile Include="exception\MiseException.cs" />
+    <Compile Include="external\Balanca.cs" />
+    <Compile Include="external\Impressora.cs" />
+    <Compile Include="FrmCancelarItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCancelarItem.Designer.cs">
+      <DependentUpon>FrmCancelarItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategorias.Designer.cs">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultarPreco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultarPreco.Designer.cs">
+      <DependentUpon>FrmConsultarPreco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFormaPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFormaPagamento.Designer.cs">
+      <DependentUpon>FrmFormaPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFormasPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFormasPagamento.Designer.cs">
+      <DependentUpon>FrmFormasPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFornecedor.Designer.cs">
+      <DependentUpon>FrmFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFornecedores.Designer.cs">
+      <DependentUpon>FrmFornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGrupo.Designer.cs">
+      <DependentUpon>FrmGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGrupos.Designer.cs">
+      <DependentUpon>FrmGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLancamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLancamento.Designer.cs">
+      <DependentUpon>FrmLancamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLancamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLancamentos.Designer.cs">
+      <DependentUpon>FrmLancamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProduto.Designer.cs">
+      <DependentUpon>FrmProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProdutos.Designer.cs">
+      <DependentUpon>FrmProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorios.Designer.cs">
+      <DependentUpon>FrmRelatorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRestore.Designer.cs">
+      <DependentUpon>FrmRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWait.Designer.cs">
+      <DependentUpon>FrmWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="log\Logger.cs" />
+    <Compile Include="model\Categoria.cs" />
+    <Compile Include="model\CategoriaRepo.cs" />
+    <Compile Include="model\IFormaPagamentoRepo.cs" />
+    <Compile Include="model\ILancamentoRepo.cs" />
+    <Compile Include="model\Lancamento.cs" />
+    <Compile Include="model\LancamentoRepo.cs" />
+    <Compile Include="model\ResumoVenda.cs" />
+    <Compile Include="model\ResumoVendaRepo.cs" />
+    <Compile Include="report\Cupom.cs" />
+    <Compile Include="report\ResumoDiario.cs" />
+    <Compile Include="model\FormaPagamentoRepo.cs" />
+    <Compile Include="model\FornecedorRepo.cs" />
+    <Compile Include="model\GrupoRepo.cs" />
+    <Compile Include="model\Catalogo.cs" />
+    <Compile Include="FrmTotal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTotal.Designer.cs">
+      <DependentUpon>FrmTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\ProdutoRepo.cs" />
+    <Compile Include="model\Fornecedor.cs" />
+    <Compile Include="model\Grupo.cs" />
+    <Compile Include="model\ICatalogo.cs" />
+    <Compile Include="model\Item.cs" />
+    <Compile Include="model\FormaPagamento.cs" />
+    <Compile Include="model\SuperDAO.cs" />
+    <Compile Include="model\Venda.cs" />
+    <Compile Include="model\Produto.cs" />
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\VendaRepo.cs" />
+    <Compile Include="model\IVendaRepo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="FrmCancelarItem.resx">
+      <DependentUpon>FrmCancelarItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategorias.resx">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultarPreco.resx">
+      <DependentUpon>FrmConsultarPreco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFormaPagamento.resx">
+      <DependentUpon>FrmFormaPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFormasPagamento.resx">
+      <DependentUpon>FrmFormasPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFornecedor.resx">
+      <DependentUpon>FrmFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFornecedores.resx">
+      <DependentUpon>FrmFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGrupo.resx">
+      <DependentUpon>FrmGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGrupos.resx">
+      <DependentUpon>FrmGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLancamento.resx">
+      <DependentUpon>FrmLancamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLancamentos.resx">
+      <DependentUpon>FrmLancamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelatorios.resx">
+      <DependentUpon>FrmRelatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRestore.resx">
+      <DependentUpon>FrmRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTotal.resx">
+      <DependentUpon>FrmTotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProduto.resx">
+      <DependentUpon>FrmProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProdutos.resx">
+      <DependentUpon>FrmProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWait.resx">
+      <DependentUpon>FrmWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="mise_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LePeso.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mise.ico" />
+    <Content Include="mise.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mise_log.ldf">
+      <DependentUpon>mise.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp2032.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="mise.mdf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

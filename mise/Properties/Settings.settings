@@ -1,0 +1,52 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="mise.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="miseConn" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(LocalDB)\mssqllocaldb;AttachDbFilename=|DataDirectory|\mise.mdf;Integrated Security=True
+;Connection Timeout=60&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(LocalDB)\mssqllocaldb;AttachDbFilename=|DataDirectory|\mise.mdf;Integrated Security=True
+;Connection Timeout=60</Value>
+    </Setting>
+    <Setting Name="nome" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FRUTARIA FRUTIMAIS</Value>
+    </Setting>
+    <Setting Name="endereco" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">R Joao Stenzowski 355 - Novo Mundo - Curitiba-PR</Value>
+    </Setting>
+    <Setting Name="fone" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">(41) 3528-3859</Value>
+    </Setting>
+    <Setting Name="portaBalanca" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">COM1</Value>
+    </Setting>
+    <Setting Name="modeloBalanca" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="portaImpressora" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">COM4</Value>
+    </Setting>
+    <Setting Name="modeloImpressora" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="logDir" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\log\</Value>
+    </Setting>
+    <Setting Name="balancaMock" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="impressoraMock" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="localAppDir" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mise</Value>
+    </Setting>
+    <Setting Name="backupEnabled" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

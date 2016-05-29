@@ -25,17 +25,6 @@ namespace mise.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\mssqllocaldb;AttachDbFilename=|DataDirectory|\\mise.mdf;Inte" +
-            "grated Security=True\n;Connection Timeout=60")]
-        public string miseConn {
-            get {
-                return ((string)(this["miseConn"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("FRUTARIA FRUTIMAIS")]
         public string nome {
             get {
@@ -108,7 +97,7 @@ namespace mise.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool balancaMock {
             get {
                 return ((bool)(this["balancaMock"]));
@@ -117,7 +106,7 @@ namespace mise.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool impressoraMock {
             get {
                 return ((bool)(this["impressoraMock"]));
@@ -135,10 +124,21 @@ namespace mise.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool backupEnabled {
             get {
                 return ((bool)(this["backupEnabled"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\mssqllocaldb;AttachDbFilename=|DataDirectory|\\mise.mdf;Inte" +
+            "grated Security=True\n;Connection Timeout=60")]
+        public string miseConn {
+            get {
+                return ((string)(this["miseConn"]));
             }
         }
     }

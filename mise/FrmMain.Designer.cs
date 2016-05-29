@@ -53,9 +53,6 @@ namespace mise
             this.label4 = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
             this.grpItem = new System.Windows.Forms.GroupBox();
-            this.txtQtd = new mise.component.NumTextBox();
-            this.txtPreco = new mise.component.NumTextBox();
-            this.txtCodigo = new mise.component.NumTextBox();
             this.grpTotal = new System.Windows.Forms.GroupBox();
             this.grpProduto = new System.Windows.Forms.GroupBox();
             this.lblProduto = new System.Windows.Forms.Label();
@@ -80,9 +77,12 @@ namespace mise
             this.label9 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblDataHora = new System.Windows.Forms.Label();
             this.timerDataHora = new System.Windows.Forms.Timer(this.components);
+            this.txtQtd = new mise.component.NumTextBox();
+            this.txtPreco = new mise.component.NumTextBox();
+            this.txtCodigo = new mise.component.NumTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridItem)).BeginInit();
             this.grpItem.SuspendLayout();
             this.grpTotal.SuspendLayout();
@@ -90,7 +90,6 @@ namespace mise
             this.grpItens.SuspendLayout();
             this.menu.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblQtd
@@ -261,29 +260,29 @@ namespace mise
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(462, 0);
+            this.label2.Location = new System.Drawing.Point(598, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 18);
+            this.label2.Size = new System.Drawing.Size(122, 18);
             this.label2.TabIndex = 7;
-            this.label2.Text = "F7 -Cancelar Venda";
+            this.label2.Text = "F7 - Canc. Venda";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(325, 0);
+            this.label3.Location = new System.Drawing.Point(481, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 18);
+            this.label3.Size = new System.Drawing.Size(109, 18);
             this.label3.TabIndex = 8;
-            this.label3.Text = "F6 - Cancelar Item";
+            this.label3.Text = "F6 - Canc. Item";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(105, 0);
+            this.label4.Location = new System.Drawing.Point(261, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 18);
@@ -314,51 +313,6 @@ namespace mise
             this.grpItem.TabIndex = 23;
             this.grpItem.TabStop = false;
             this.grpItem.Text = "Item";
-            // 
-            // txtQtd
-            // 
-            this.txtQtd.AutoComma = false;
-            this.txtQtd.Dec = 3;
-            this.txtQtd.Location = new System.Drawing.Point(11, 47);
-            this.txtQtd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtQtd.MaxLength = 6;
-            this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(103, 26);
-            this.txtQtd.TabIndex = 1;
-            this.txtQtd.ReadOnlyChanged += new System.EventHandler(this.txtQtd_ReadOnlyChanged);
-            this.txtQtd.TextChanged += new System.EventHandler(this.txtQtd_TextChanged);
-            this.txtQtd.Enter += new System.EventHandler(this.txtQtd_Enter);
-            this.txtQtd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQtd_KeyDown);
-            this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtd_KeyPress);
-            // 
-            // txtPreco
-            // 
-            this.txtPreco.AutoComma = false;
-            this.txtPreco.Dec = 2;
-            this.txtPreco.Location = new System.Drawing.Point(11, 159);
-            this.txtPreco.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtPreco.MaxLength = 6;
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(103, 26);
-            this.txtPreco.TabIndex = 13;
-            this.txtPreco.ReadOnlyChanged += new System.EventHandler(this.txtPreco_ReadOnlyChanged);
-            this.txtPreco.Enter += new System.EventHandler(this.txtPreco_Enter);
-            this.txtPreco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPreco_KeyDown);
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.AutoComma = true;
-            this.txtCodigo.Dec = 0;
-            this.txtCodigo.Location = new System.Drawing.Point(11, 103);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCodigo.MaxLength = 18;
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(206, 26);
-            this.txtCodigo.TabIndex = 0;
-            this.txtCodigo.TabStop = false;
-            this.txtCodigo.ReadOnlyChanged += new System.EventHandler(this.txtCodigo_ReadOnlyChanged);
-            this.txtCodigo.Enter += new System.EventHandler(this.txtCodigo_Enter);
-            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
             // 
             // grpTotal
             // 
@@ -508,7 +462,7 @@ namespace mise
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 0);
+            this.label5.Location = new System.Drawing.Point(160, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 18);
@@ -519,7 +473,7 @@ namespace mise
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(226, 0);
+            this.label6.Location = new System.Drawing.Point(382, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 18);
@@ -530,18 +484,18 @@ namespace mise
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(703, 0);
+            this.label7.Location = new System.Drawing.Point(823, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 18);
+            this.label7.Size = new System.Drawing.Size(149, 18);
             this.label7.TabIndex = 30;
-            this.label7.Text = "F11 - Consultar Preço";
+            this.label7.Text = "F11 - Consulta Preço";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(865, 0);
+            this.label8.Location = new System.Drawing.Point(980, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 18);
@@ -552,7 +506,7 @@ namespace mise
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(608, 0);
+            this.label9.Location = new System.Drawing.Point(728, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(87, 18);
@@ -561,42 +515,35 @@ namespace mise
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.label5);
-            this.flowLayoutPanel1.Controls.Add(this.label4);
-            this.flowLayoutPanel1.Controls.Add(this.label6);
-            this.flowLayoutPanel1.Controls.Add(this.label3);
-            this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.label9);
-            this.flowLayoutPanel1.Controls.Add(this.label7);
+            this.flowLayoutPanel1.Controls.Add(this.lblDataHora);
+            this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.label8);
+            this.flowLayoutPanel1.Controls.Add(this.label7);
+            this.flowLayoutPanel1.Controls.Add(this.label9);
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.label6);
+            this.flowLayoutPanel1.Controls.Add(this.label4);
+            this.flowLayoutPanel1.Controls.Add(this.label5);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 658);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 648);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1252, 36);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1252, 46);
             this.flowLayoutPanel1.TabIndex = 33;
             // 
             // bgWorker
             // 
             this.bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorker_DoWork);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblDataHora);
-            this.groupBox1.Location = new System.Drawing.Point(12, 334);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(224, 64);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Data/Hora";
-            // 
             // lblDataHora
             // 
             this.lblDataHora.AutoSize = true;
-            this.lblDataHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataHora.Location = new System.Drawing.Point(7, 26);
+            this.lblDataHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataHora.Location = new System.Drawing.Point(1112, 0);
             this.lblDataHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDataHora.Name = "lblDataHora";
-            this.lblDataHora.Size = new System.Drawing.Size(149, 20);
+            this.lblDataHora.Size = new System.Drawing.Size(136, 17);
             this.lblDataHora.TabIndex = 6;
             this.lblDataHora.Text = "99/99/9999 99:99";
             // 
@@ -604,13 +551,68 @@ namespace mise
             // 
             this.timerDataHora.Tick += new System.EventHandler(this.timerDataHora_Tick);
             // 
+            // txtQtd
+            // 
+            this.txtQtd.AutoComma = false;
+            this.txtQtd.Dec = 3;
+            this.txtQtd.Location = new System.Drawing.Point(11, 47);
+            this.txtQtd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtQtd.MaxLength = 6;
+            this.txtQtd.Name = "txtQtd";
+            this.txtQtd.Size = new System.Drawing.Size(103, 26);
+            this.txtQtd.TabIndex = 1;
+            this.txtQtd.ReadOnlyChanged += new System.EventHandler(this.txtQtd_ReadOnlyChanged);
+            this.txtQtd.TextChanged += new System.EventHandler(this.txtQtd_TextChanged);
+            this.txtQtd.Enter += new System.EventHandler(this.txtQtd_Enter);
+            this.txtQtd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQtd_KeyDown);
+            this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtd_KeyPress);
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.AutoComma = false;
+            this.txtPreco.Dec = 2;
+            this.txtPreco.Location = new System.Drawing.Point(11, 159);
+            this.txtPreco.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPreco.MaxLength = 6;
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(103, 26);
+            this.txtPreco.TabIndex = 13;
+            this.txtPreco.ReadOnlyChanged += new System.EventHandler(this.txtPreco_ReadOnlyChanged);
+            this.txtPreco.Enter += new System.EventHandler(this.txtPreco_Enter);
+            this.txtPreco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPreco_KeyDown);
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.AutoComma = true;
+            this.txtCodigo.Dec = 0;
+            this.txtCodigo.Location = new System.Drawing.Point(11, 103);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCodigo.MaxLength = 18;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(206, 26);
+            this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.TabStop = false;
+            this.txtCodigo.ReadOnlyChanged += new System.EventHandler(this.txtCodigo_ReadOnlyChanged);
+            this.txtCodigo.Enter += new System.EventHandler(this.txtCodigo_Enter);
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1091, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 18);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "|";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1252, 694);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpItem);
             this.Controls.Add(this.grpTotal);
             this.Controls.Add(this.grpItens);
@@ -643,8 +645,6 @@ namespace mise
             this.menu.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -695,9 +695,9 @@ namespace mise
         private System.Windows.Forms.DataGridViewTextBoxColumn qtd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblDataHora;
         private System.Windows.Forms.Timer timerDataHora;
+        private System.Windows.Forms.Label label1;
     }
 }
 

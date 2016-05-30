@@ -24,7 +24,7 @@ namespace mise
     public partial class FrmMain : Form
     {
         private ICatalogo _catalogo;
-        private IVendaRepo _vendaRepo;
+        private VendaRepo _vendaRepo;
         private FormaPagamentoRepo _formaPagamentoRepo;
         private Balanca _balanca;
         
@@ -34,8 +34,6 @@ namespace mise
         private Font FONT_REGULAR;
 
         private Venda venda;
-
-        private long _idUltimaVenda;
 
         private Impressora Impressora { get { return Impressora.Instance; } }
 
@@ -118,7 +116,6 @@ namespace mise
                     if (new FrmTotal(venda).ShowDialog() == DialogResult.OK)
                     {
                         Venda v = _vendaRepo.Incluir(venda);
-                        _idUltimaVenda = v.Id;
                         inicializar();
                     }
                     else
@@ -189,13 +186,14 @@ namespace mise
                 case Keys.F9:
                     try
                     {
-                        if (_idUltimaVenda == 0)
+                        long idUltimaVenda = _vendaRepo.ObterUltimoId();
+                        if (idUltimaVenda == 0)
                         {
                             MessageBox.Show("Nenhuma venda concluída até o momento!");
                         }
                         else
                         {
-                            Cupom cupom = new Cupom(_vendaRepo.Obter(_idUltimaVenda));
+                            Cupom cupom = new Cupom(_vendaRepo.Obter(idUltimaVenda));
                             Impressora.Imprimir(cupom.Gerar());
                             Impressora.CortarPapel();
                         }

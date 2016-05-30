@@ -231,6 +231,19 @@ namespace mise.model
             return venda;
         }
 
+        public long ObterUltimoId()
+        {
+            using (SqlConnection conn = new SqlConnection(CONN))
+            {
+                SqlCommand cmd = new SqlCommand("select max(id) " +
+                    "from venda; ", conn);
+                conn.Open();
+
+                return (long) cmd.ExecuteScalar();
+
+            }
+        }
+
         public Dictionary<long, ResumoVenda> GerarResumoAnalitico(DateTime ini, DateTime fim)
         {
             Dictionary<long, ResumoVenda> resumo = new Dictionary<long, ResumoVenda>();

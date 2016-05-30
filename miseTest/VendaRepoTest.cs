@@ -319,5 +319,21 @@ namespace miseTest
             Assert.AreEqual(Decimal.Round(qtdTwix * TWIX.PrecoVenda, 2), resumo[TWIX.Codigo].Total);
             
         }
+
+        [TestMethod]
+        public void ObterUltimoId_ok()
+        {
+            Venda v = Venda.Iniciar(produtoRepo);
+            v.AdicionarItem(PAO.Codigo, 0.5m);
+            v.AdicionarItem(TWIX.Codigo, 2);
+            v.AdicionarItem(BANANA.Codigo, 0.999m);
+            v.AdicionarItem(MACA.Codigo, 0.511m);
+            v.AdicionarItemDiversos(2.5m, 2.99m);
+            v.CancelarItem(1);
+            v.Pagar(v.Total, DINHEIRO);
+            v = repo.Incluir(v);
+
+            Assert.AreEqual(v.Id, repo.ObterUltimoId());
+        }
     }
 }

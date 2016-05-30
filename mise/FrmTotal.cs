@@ -74,9 +74,16 @@ namespace mise
                     txtValor.SelectAll();
 
                     lblTotalPago.Text = _venda.TotalPago.ToString("C2");
-                    
+
+                    if (_venda.Pagamentos.Count > 1)
+                    {
+                        this.AutoSize = true;
+                        grpPagamentos.Show();
+                    }
+
                     if (_venda.TotalAPagar == 0)
                     {
+                        fadingLabel.ShowAndFade();
                         Impressora.Instance.AbrirGaveta();
                     }
                 }

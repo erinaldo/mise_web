@@ -629,5 +629,10 @@ namespace mise
             lblDataHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
 
+        private void doDiaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new FrmUltimasVendas().ShowDialog();
+        }
+
     }
 }

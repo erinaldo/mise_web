@@ -335,5 +335,57 @@ namespace miseTest
 
             Assert.AreEqual(v.Id, repo.ObterUltimoId());
         }
+
+        [TestMethod]
+        public void Listar_ok()
+        {
+            Venda v = Venda.Iniciar(produtoRepo);
+            v.AdicionarItem(PAO.Codigo, 0.5m);
+            v.AdicionarItem(TWIX.Codigo, 2);
+            v.AdicionarItem(BANANA.Codigo, 0.999m);
+            v.AdicionarItem(MACA.Codigo, 0.511m);
+            v.AdicionarItemDiversos(2.5m, 2.99m);
+            v.CancelarItem(1);
+            v.Pagar(v.Total, DINHEIRO);
+            v = repo.Incluir(v);
+
+            List<Venda> lista = repo.Listar(DateTime.Today, DateTime.Today);
+
+            Assert.IsTrue(lista.Contains(v));
+
+            Venda vendaBanco = lista.Find(x => x.Id == v.Id);
+            Assert.AreEqual(v.Total, vendaBanco.Total);
+
+            foreach (var item in v.Itens)
+            {
+                if (!item.Cancelado) // itens cancelados não são persistidos
+                    Assert.IsTrue(vendaBanco.Itens.Contains(item));
+            }
+
+            foreach (var p in v.Pagamentos)
+            {
+                Assert.IsTrue(vendaBanco.Pagamentos.Contains(p));
+            }
+        }
+
+        [TestMethod]
+        public void Listar_ok_NaoTemVendasNoDia()
+        {
+            Venda v = Venda.Iniciar(produtoRepo);
+            v.AdicionarItem(PAO.Codigo, 0.5m);
+            v.AdicionarItem(TWIX.Codigo, 2);
+            v.AdicionarItem(BANANA.Codigo, 0.999m);
+            v.AdicionarItem(MACA.Codigo, 0.511m);
+            v.AdicionarItemDiversos(2.5m, 2.99m);
+            v.CancelarItem(1);
+            v.Pagar(v.Total, DINHEIRO);
+            v = repo.Incluir(v);
+
+            DateTime daqui5Dias = DateTime.Today.AddDays(5);
+
+            List<Venda> lista = repo.Listar(daqui5Dias, daqui5Dias);
+
+            Assert.AreEqual(0, lista.Count);
+        }
     }
 }

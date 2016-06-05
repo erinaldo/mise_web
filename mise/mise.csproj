@@ -125,6 +125,12 @@
     <Compile Include="FrmConsultarPreco.Designer.cs">
       <DependentUpon>FrmConsultarPreco.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDetalheVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalheVenda.Designer.cs">
+      <DependentUpon>FrmDetalheVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFormaPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,12 @@
     <Compile Include="FrmRestore.Designer.cs">
       <DependentUpon>FrmRestore.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUltimasVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUltimasVendas.Designer.cs">
+      <DependentUpon>FrmUltimasVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmWait.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +268,9 @@
     <EmbeddedResource Include="FrmConsultarPreco.resx">
       <DependentUpon>FrmConsultarPreco.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalheVenda.resx">
+      <DependentUpon>FrmDetalheVenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmFormaPagamento.resx">
       <DependentUpon>FrmFormaPagamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProdutos.resx">
       <DependentUpon>FrmProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUltimasVendas.resx">
+      <DependentUpon>FrmUltimasVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWait.resx">
       <DependentUpon>FrmWait.cs</DependentUpon>

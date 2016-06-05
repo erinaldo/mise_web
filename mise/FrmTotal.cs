@@ -75,7 +75,7 @@ namespace mise
 
                     lblTotalPago.Text = _venda.TotalPago.ToString("C2");
 
-                    if (_venda.Pagamentos.Count > 1)
+                    if (_venda.TotalAPagar > 0)
                     {
                         this.AutoSize = true;
                         grpPagamentos.Show();

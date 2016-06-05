@@ -270,5 +270,15 @@ namespace mise.model
         {
             _pagamentos.Clear();
         }
+
+        public override int GetHashCode()
+        {
+            return _id.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj != null && obj is Venda && ((Venda)obj)._id == this._id;
+        }
     }
 }

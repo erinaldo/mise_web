@@ -83,6 +83,7 @@ namespace mise
             this.label1 = new System.Windows.Forms.Label();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.timerDataHora = new System.Windows.Forms.Timer(this.components);
+            this.doDiaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridItem)).BeginInit();
             this.grpItem.SuspendLayout();
             this.grpTotal.SuspendLayout();
@@ -476,24 +477,25 @@ namespace mise
             // toolStripResumo
             // 
             this.toolStripResumo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.doDiaToolStripMenuItem1,
             this.resumoDiarioToolStripMenuItem,
             this.analíticoToolStripMenuItem});
             this.toolStripResumo.Name = "toolStripResumo";
-            this.toolStripResumo.Size = new System.Drawing.Size(71, 20);
-            this.toolStripResumo.Text = "Relatórios";
+            this.toolStripResumo.Size = new System.Drawing.Size(56, 20);
+            this.toolStripResumo.Text = "Vendas";
             // 
             // resumoDiarioToolStripMenuItem
             // 
             this.resumoDiarioToolStripMenuItem.Name = "resumoDiarioToolStripMenuItem";
-            this.resumoDiarioToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.resumoDiarioToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.resumoDiarioToolStripMenuItem.Text = "Resumo Diário";
             this.resumoDiarioToolStripMenuItem.Click += new System.EventHandler(this.resumoDiarioToolStripMenuItem_Click);
             // 
             // analíticoToolStripMenuItem
             // 
             this.analíticoToolStripMenuItem.Name = "analíticoToolStripMenuItem";
-            this.analíticoToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-            this.analíticoToolStripMenuItem.Text = "Analítico";
+            this.analíticoToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.analíticoToolStripMenuItem.Text = "Resumo Analítico";
             this.analíticoToolStripMenuItem.Click += new System.EventHandler(this.analíticoToolStripMenuItem_Click);
             // 
             // menuItemSair
@@ -607,6 +609,13 @@ namespace mise
             // 
             this.timerDataHora.Tick += new System.EventHandler(this.timerDataHora_Tick);
             // 
+            // doDiaToolStripMenuItem1
+            // 
+            this.doDiaToolStripMenuItem1.Name = "doDiaToolStripMenuItem1";
+            this.doDiaToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
+            this.doDiaToolStripMenuItem1.Text = "Do Dia";
+            this.doDiaToolStripMenuItem1.Click += new System.EventHandler(this.doDiaToolStripMenuItem1_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -698,6 +707,7 @@ namespace mise
         private System.Windows.Forms.Label lblDataHora;
         private System.Windows.Forms.Timer timerDataHora;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem doDiaToolStripMenuItem1;
     }
 }
 

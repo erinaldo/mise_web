@@ -284,5 +284,84 @@ namespace mise.model
             return resumo;
         }
 
+        public List<Venda> Listar(DateTime ini, DateTime fim)
+        {
+            if (ini == null)
+                throw new MiseException("Data inicial não informada!");
+
+            if (fim == null)
+                throw new MiseException("Data final não informada!");
+
+            List<Venda> vendas = new List<Venda>();
+
+            using (SqlConnection conn = new SqlConnection(CONN))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(
+                    "select v.id, v.data_hora from venda v " +
+                    "where convert(date, v.data_hora) between @ini and @fim " +
+                    "order by v.data_hora desc; ", conn);
+                cmd.Parameters.Add("@ini", SqlDbType.DateTime).Value = ini;
+                cmd.Parameters.Add("@fim", SqlDbType.DateTime).Value = fim;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            vendas.Add(new Venda(readLong(reader, 0), readDateTime(reader, 1)));
+                        }
+                    }
+                }
+
+                foreach (var venda in vendas)
+                {
+                    SqlCommand cmdPagamento = new SqlCommand(
+                        "select p.id_venda, p.sequencial, p.valor, f.id " +
+                        "from pagamento p " +
+                        "join formapagamento f on p.id_forma_pagamento = f.id " +
+                        "where p.id_venda = @id; ", conn);
+                    cmdPagamento.Parameters.Add("@id", SqlDbType.BigInt).Value = venda.Id;
+                    
+                    using (SqlDataReader reader = cmdPagamento.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                FormaPagamento f = FormaPagamentoRepo.Instance.Obter(readInt(reader, 3));
+                                Venda.Pagamento p = new Venda.Pagamento(readDecimal(reader, 2), f, 0);
+                                venda.Pagamentos.Add(p);
+                            }
+                        }
+                    }
+                    
+                    // itens
+                    SqlCommand cmdItem = new SqlCommand(
+                        "select p.codigo, i.sequencial, i.qtd, i.preco from item i " +
+                        "join produto p on p.id = i.id_produto " +
+                        "where id_venda = @id; ", conn);
+                    cmdItem.Parameters.Add("@id", SqlDbType.BigInt).Value = venda.Id;
+
+                    using (SqlDataReader reader = cmdItem.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                Item item = new Item(readInt(reader, 1), ProdutoRepo.Instance.Obter(readLong(reader, 0)));
+                                item.Qtd = readDecimal(reader, 2);
+                                item.PrecoUni = readDecimal(reader, 3);
+                                venda.Itens.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return vendas;
+        }
     }
 }

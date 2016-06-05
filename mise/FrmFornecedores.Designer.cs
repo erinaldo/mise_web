@@ -32,15 +32,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeFantasia = new System.Windows.Forms.TextBox();
             this.gridFornecedores = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeFantasia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolBtnNovo = new System.Windows.Forms.ToolStripButton();
             this.toolBtnAlterar = new System.Windows.Forms.ToolStripButton();
             this.toolBtnExcluir = new System.Windows.Forms.ToolStripButton();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeFantasia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridFornecedores)).BeginInit();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +89,37 @@
             this.gridFornecedores.Size = new System.Drawing.Size(803, 488);
             this.gridFornecedores.TabIndex = 3;
             this.gridFornecedores.SelectionChanged += new System.EventHandler(this.gridFornecedores_SelectionChanged);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // NomeFantasia
+            // 
+            this.NomeFantasia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.NomeFantasia.HeaderText = "Nome Fantasia";
+            this.NomeFantasia.Name = "NomeFantasia";
+            this.NomeFantasia.ReadOnly = true;
+            this.NomeFantasia.Width = 400;
+            // 
+            // Contato
+            // 
+            this.Contato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Contato.HeaderText = "Contato";
+            this.Contato.Name = "Contato";
+            this.Contato.ReadOnly = true;
+            this.Contato.Width = 200;
+            // 
+            // Telefone
+            // 
+            this.Telefone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Telefone.HeaderText = "Telefone";
+            this.Telefone.Name = "Telefone";
+            this.Telefone.ReadOnly = true;
+            this.Telefone.Width = 150;
             // 
             // btnPesquisar
             // 
@@ -152,37 +183,6 @@
             this.toolBtnExcluir.Size = new System.Drawing.Size(48, 48);
             this.toolBtnExcluir.Text = "Excluir";
             this.toolBtnExcluir.Click += new System.EventHandler(this.toolBtnExcluir_Click);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // NomeFantasia
-            // 
-            this.NomeFantasia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.NomeFantasia.HeaderText = "Nome Fantasia";
-            this.NomeFantasia.Name = "NomeFantasia";
-            this.NomeFantasia.ReadOnly = true;
-            this.NomeFantasia.Width = 400;
-            // 
-            // Contato
-            // 
-            this.Contato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Contato.HeaderText = "Contato";
-            this.Contato.Name = "Contato";
-            this.Contato.ReadOnly = true;
-            this.Contato.Width = 200;
-            // 
-            // Telefone
-            // 
-            this.Telefone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Telefone.HeaderText = "Telefone";
-            this.Telefone.Name = "Telefone";
-            this.Telefone.ReadOnly = true;
-            this.Telefone.Width = 150;
             // 
             // FrmFornecedores
             // 

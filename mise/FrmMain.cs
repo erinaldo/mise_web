@@ -27,6 +27,8 @@ namespace mise
         private VendaRepo _vendaRepo;
         private FormaPagamentoRepo _formaPagamentoRepo;
         private Balanca _balanca;
+
+        private Venda _ultimaVenda;
         
         private Logger _logger;
 
@@ -116,6 +118,7 @@ namespace mise
                     if (new FrmTotal(venda).ShowDialog() == DialogResult.OK)
                     {
                         Venda v = _vendaRepo.Incluir(venda);
+                        _ultimaVenda = v;
                         inicializar();
                     }
                     else
@@ -186,14 +189,16 @@ namespace mise
                 case Keys.F9:
                     try
                     {
-                        long idUltimaVenda = _vendaRepo.ObterUltimoId();
-                        if (idUltimaVenda == 0)
+                        if (_ultimaVenda == null)
                         {
-                            MessageBox.Show("Nenhuma venda concluída até o momento!");
+                            long idUltimaVenda = _vendaRepo.ObterUltimoId();
+                            _ultimaVenda = _vendaRepo.Obter(idUltimaVenda);
                         }
-                        else
-                        {
-                            Cupom cupom = new Cupom(_vendaRepo.Obter(idUltimaVenda));
+
+                        if (_ultimaVenda == null) {
+                            MessageBox.Show("Nenhuma venda concluída até o momento!");
+                        } else {
+                            Cupom cupom = new Cupom(_ultimaVenda);
                             Impressora.Imprimir(cupom.Gerar());
                             Impressora.CortarPapel();
                         }

@@ -150,7 +150,7 @@ namespace mise
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(104, 168);
+            this.label4.Location = new System.Drawing.Point(131, 168);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 20);
@@ -161,7 +161,7 @@ namespace mise
             // 
             this.lblRestante.AutoSize = true;
             this.lblRestante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRestante.Location = new System.Drawing.Point(104, 190);
+            this.lblRestante.Location = new System.Drawing.Point(131, 190);
             this.lblRestante.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRestante.Name = "lblRestante";
             this.lblRestante.Size = new System.Drawing.Size(72, 20);
@@ -171,10 +171,11 @@ namespace mise
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(207, 0);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(185, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 20);
+            this.label5.Size = new System.Drawing.Size(141, 17);
             this.label5.TabIndex = 9;
             this.label5.Text = "F10 - Concluir Venda";
             // 
@@ -225,10 +226,11 @@ namespace mise
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(4, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(195, 20);
+            this.label6.Size = new System.Drawing.Size(173, 17);
             this.label6.TabIndex = 15;
             this.label6.Text = "F9 - Forma de Pagamento";
             // 
@@ -266,7 +268,7 @@ namespace mise
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 329);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(433, 33);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(420, 33);
             this.flowLayoutPanel1.TabIndex = 18;
             // 
             // fadingLabel
@@ -288,7 +290,7 @@ namespace mise
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(433, 362);
+            this.ClientSize = new System.Drawing.Size(420, 362);
             this.Controls.Add(this.fadingLabel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblTotal);

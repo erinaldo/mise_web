@@ -31,6 +31,11 @@ namespace mise.external
         private static string PORTA = Properties.Settings.Default.portaBalanca;
 
         private Balanca() {
+            Init();
+        }
+
+        private void Init()
+        {
             if (!_MOCK)
             {
                 _AlteraModeloBalanca(Convert.ToInt32(MODELO)); // US POP
@@ -67,6 +72,23 @@ namespace mise.external
 
         public string LerPeso()
         {
+            string pesoTrim = Ler();
+
+            if (pesoTrim.Contains('*'))
+            {
+                Init();
+                pesoTrim = Ler();
+                if (pesoTrim.Contains('*'))
+                {
+                    throw new Exception("Não foi possível ler peso! Verifique se a balança está conectada e tente novamente.");
+                }
+            }
+
+            return pesoTrim;
+        }
+
+        private string Ler()
+        {
             if (!_MOCK)
             {
                 int len = 0;
@@ -87,9 +109,7 @@ namespace mise.external
                 arrSomentePeso[4] = array[22];
                 arrSomentePeso[5] = array[23];
 
-                string pesoTrim = System.Text.Encoding.Default.GetString(arrSomentePeso).Trim();
-
-                return pesoTrim;
+                return System.Text.Encoding.Default.GetString(arrSomentePeso).Trim();
             }
             else
             {

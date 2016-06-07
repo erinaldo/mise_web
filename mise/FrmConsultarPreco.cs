@@ -27,16 +27,18 @@ namespace mise
         {
             try
             {
-                if (txtCodigo.Text != "")
+                long codigo;
+
+                if (long.TryParse(txtPesquisa.Text, out codigo))
                 {
                     gridProdutos.Rows.Clear();
-                    Produto p = _repo.Obter(Convert.ToInt64(txtCodigo.Text));
+                    Produto p = _repo.Obter(codigo);
 
                     gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda.ToString("0.00"), p.UnidadeMedida);
                 }
                 else
                 {
-                    List<Produto> produtos = _repo.Listar(txtNome.Text);
+                    List<Produto> produtos = _repo.Listar(txtPesquisa.Text);
 
                     gridProdutos.Rows.Clear();
 
@@ -45,6 +47,8 @@ namespace mise
                         gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda.ToString("0.00"), p.UnidadeMedida);
                     }
                 }
+
+                txtPesquisa.SelectAll();
             }
             catch (MiseException me)
             {
@@ -57,35 +61,20 @@ namespace mise
             }
         }
 
-        private void rdNome_CheckedChanged(object sender, EventArgs e)
-        {
-            radioChange();
-        }
-
-        private void rdCodigo_CheckedChanged(object sender, EventArgs e)
-        {
-            radioChange();
-        }
-
-        private void radioChange()
-        {
-            txtCodigo.Visible = rdCodigo.Checked;
-            txtNome.Visible = rdNome.Checked;
-            if (rdCodigo.Checked)
-            {
-                txtNome.Text = "";
-                txtCodigo.Focus();
-            }
-            else
-            {
-                txtCodigo.Text = "";
-                txtNome.Focus();
-            }
-        }
-
         private void FrmConsultarPreco_Shown(object sender, EventArgs e)
         {
-            txtCodigo.Focus();
+            gridProdutos.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            gridProdutos.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            txtPesquisa.Focus();
+        }
+
+        private void FrmConsultarPreco_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -137,7 +137,16 @@ namespace mise
                     txtQtd.Focus();
                     break;
                 case Keys.F4: // balanca
-                    txtQtd.Text = _balanca.LerPeso();
+                    try
+                    {
+                        txtQtd.Text = _balanca.LerPeso();
+                    }
+                    catch (Exception ex)
+                    {
+                        txtQtd.Text = "";
+                        _logger.Log(ex);
+                        MessageBox.Show(ex.Message);
+                    }
                     break;  
                 case Keys.F6:
                     // cancelar item

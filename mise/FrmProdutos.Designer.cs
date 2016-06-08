@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProdutos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProdutos));
             this.gridProdutos = new System.Windows.Forms.DataGridView();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precoVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.toolBar = new System.Windows.Forms.ToolStrip();
             this.toolBtnNovo = new System.Windows.Forms.ToolStripButton();
             this.toolBtnAlterar = new System.Windows.Forms.ToolStripButton();
             this.toolBtnExcluir = new System.Windows.Forms.ToolStripButton();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precoVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridProdutos)).BeginInit();
             this.toolBar.SuspendLayout();
             this.SuspendLayout();
@@ -74,14 +74,39 @@
             this.gridProdutos.TabIndex = 6;
             this.gridProdutos.SelectionChanged += new System.EventHandler(this.gridProdutos_SelectionChanged);
             // 
-            // txtDescricao
+            // codigo
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(69, 34);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtDescricao.MaxLength = 20;
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(269, 26);
-            this.txtDescricao.TabIndex = 0;
+            this.codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 220;
+            // 
+            // descricao
+            // 
+            this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.descricao.HeaderText = "Nome";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            this.descricao.Width = 340;
+            // 
+            // precoVenda
+            // 
+            this.precoVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.precoVenda.DefaultCellStyle = dataGridViewCellStyle1;
+            this.precoVenda.HeaderText = "Preço Venda";
+            this.precoVenda.Name = "precoVenda";
+            this.precoVenda.ReadOnly = true;
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Location = new System.Drawing.Point(69, 34);
+            this.txtPesquisa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPesquisa.MaxLength = 20;
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(395, 26);
+            this.txtPesquisa.TabIndex = 0;
             // 
             // label2
             // 
@@ -89,9 +114,9 @@
             this.label2.Location = new System.Drawing.Point(65, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.Size = new System.Drawing.Size(127, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Nome";
+            this.label2.Text = "Código ou Nome";
             // 
             // btnBuscar
             // 
@@ -99,7 +124,7 @@
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(346, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(472, 30);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(112, 35);
@@ -158,31 +183,6 @@
             this.toolBtnExcluir.Text = "Excluir";
             this.toolBtnExcluir.Click += new System.EventHandler(this.toolBtnExcluir_Click);
             // 
-            // codigo
-            // 
-            this.codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            this.codigo.Width = 220;
-            // 
-            // descricao
-            // 
-            this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.descricao.HeaderText = "Nome";
-            this.descricao.Name = "descricao";
-            this.descricao.ReadOnly = true;
-            this.descricao.Width = 340;
-            // 
-            // precoVenda
-            // 
-            this.precoVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.precoVenda.DefaultCellStyle = dataGridViewCellStyle1;
-            this.precoVenda.HeaderText = "Preço Venda";
-            this.precoVenda.Name = "precoVenda";
-            this.precoVenda.ReadOnly = true;
-            // 
             // FrmProdutos
             // 
             this.AcceptButton = this.btnBuscar;
@@ -192,7 +192,7 @@
             this.ClientSize = new System.Drawing.Size(824, 741);
             this.Controls.Add(this.toolBar);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtDescricao);
+            this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gridProdutos);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -216,7 +216,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView gridProdutos;
-        private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ToolStrip toolBar;

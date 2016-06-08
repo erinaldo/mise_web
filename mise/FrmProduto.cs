@@ -186,5 +186,13 @@ namespace mise
             cbFornecedor.Focus();
         }
 
+        private void txtDescricao_Enter(object sender, EventArgs e)
+        {
+            if (txtDescricao.Text == "" && txtNome.Text != "")
+            {
+                txtDescricao.Text = txtNome.Text;
+            }
+        }
+
     }
 }

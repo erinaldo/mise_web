@@ -40,6 +40,8 @@ namespace mise
 
                 gridFornecedores.ClearSelection();
             }
+
+            txtNomeFantasia.SelectAll();
         }
 
         private void FrmFornecedores_Load(object sender, EventArgs e)

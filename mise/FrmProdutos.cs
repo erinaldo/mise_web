@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using mise.exception;
 
 namespace mise
 {
@@ -24,24 +25,50 @@ namespace mise
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            _produtos = _produtoRepo.Listar(txtDescricao.Text);
-            if (IsHandleCreated)
+            long codigo;
+
+            if (long.TryParse(txtPesquisa.Text, out codigo))
             {
-                this.Invoke((MethodInvoker)delegate {
-                    gridProdutos.Rows.Clear();
+                Produto p = null;
+                try
+                {
+                    p = _produtoRepo.Obter(codigo);
+                }
+                catch (MiseException)
+                {
+                    
+                }
+                _produtos.Clear();
+                if (p != null)
+                {
+                    _produtos.Add(p);
+                }
 
-                    foreach (var p in _produtos)
-	                {
-                        gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda);
-	                }
-
-                    if (gridProdutos.SortedColumn != null)
-                    {
-                        gridProdutos.Sort(gridProdutos.SortedColumn, gridProdutos.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
-                    }
-                    gridProdutos.ClearSelection();
-                });
+                gridProdutos.Rows.Clear();
+                gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda.ToString("0.00"), p.UnidadeMedida);
             }
+            else
+            {
+                _produtos = _produtoRepo.Listar(txtPesquisa.Text);
+                if (IsHandleCreated)
+                {
+                    this.Invoke((MethodInvoker)delegate {
+                        gridProdutos.Rows.Clear();
+
+                        foreach (var p in _produtos)
+	                    {
+                            gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda);
+	                    }
+
+                        if (gridProdutos.SortedColumn != null)
+                        {
+                            gridProdutos.Sort(gridProdutos.SortedColumn, gridProdutos.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
+                        }
+                        gridProdutos.ClearSelection();
+                    });
+                }
+            }
+            txtPesquisa.SelectAll();
         }
 
         private void FrmProdutos2_Load(object sender, EventArgs e)

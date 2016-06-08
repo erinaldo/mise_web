@@ -95,6 +95,7 @@ namespace mise
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(474, 52);
             this.txtDescricao.TabIndex = 5;
+            this.txtDescricao.Enter += new System.EventHandler(this.txtDescricao_Enter);
             // 
             // label3
             // 

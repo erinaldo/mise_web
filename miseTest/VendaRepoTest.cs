@@ -200,7 +200,7 @@ namespace miseTest
             v1.Pagar(v1.Total, DINHEIRO);
             repo.Incluir(v1);
 
-            Dictionary<int, decimal> resumo = repo.GerarResumoDiario(dataTeste);
+            Dictionary<int, decimal> resumo = repo.GerarResumo(dataTeste, dataTeste);
 
             Assert.AreEqual((v1.Total + v2.Total), resumo[DINHEIRO.Id]);
             Assert.AreEqual((v3.Total + v4.Total), resumo[MASTER_CREDITO.Id]);

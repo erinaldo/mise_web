@@ -9,65 +9,76 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using mise.exception;
+using mise.log;
 
 namespace mise
 {
     public partial class FrmProdutos : Form
     {
         private ProdutoRepo _produtoRepo = ProdutoRepo.Instance;
-        private List<Produto> _produtos;
+        private List<Produto> _produtos = new List<Produto>();
         private long _codSelecionado;
+        private Logger _logger;
 
         public FrmProdutos()
         {
             InitializeComponent();
+            _logger = Logger.Instance;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             long codigo;
-
-            if (long.TryParse(txtPesquisa.Text, out codigo))
+            try
             {
-                Produto p = null;
-                try
+                if (long.TryParse(txtPesquisa.Text, out codigo))
                 {
-                    p = _produtoRepo.Obter(codigo);
-                }
-                catch (MiseException)
-                {
-                    
-                }
-                _produtos.Clear();
-                if (p != null)
-                {
-                    _produtos.Add(p);
-                }
+                    Produto p = null;
+                    try
+                    {
+                        p = _produtoRepo.Obter(codigo);
+                    }
+                    catch (MiseException)
+                    {
+                    }
+                    _produtos.Clear();
+                    if (p != null)
+                    {
+                        _produtos.Add(p);
+                    }
 
-                gridProdutos.Rows.Clear();
-                gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda.ToString("0.00"), p.UnidadeMedida);
-            }
-            else
-            {
-                _produtos = _produtoRepo.Listar(txtPesquisa.Text);
-                if (IsHandleCreated)
+                    gridProdutos.Rows.Clear();
+                    gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda.ToString("0.00"), p.UnidadeMedida);
+                }
+                else
                 {
-                    this.Invoke((MethodInvoker)delegate {
-                        gridProdutos.Rows.Clear();
-
-                        foreach (var p in _produtos)
-	                    {
-                            gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda);
-	                    }
-
-                        if (gridProdutos.SortedColumn != null)
+                    _produtos = _produtoRepo.Listar(txtPesquisa.Text);
+                    if (IsHandleCreated)
+                    {
+                        this.Invoke((MethodInvoker)delegate
                         {
-                            gridProdutos.Sort(gridProdutos.SortedColumn, gridProdutos.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
-                        }
-                        gridProdutos.ClearSelection();
-                    });
+                            gridProdutos.Rows.Clear();
+
+                            foreach (var p in _produtos)
+                            {
+                                gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda);
+                            }
+
+                            if (gridProdutos.SortedColumn != null)
+                            {
+                                gridProdutos.Sort(gridProdutos.SortedColumn, gridProdutos.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
+                            }
+                            gridProdutos.ClearSelection();
+                        });
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                _logger.Log(ex);
+                MessageBox.Show(ex.Message);
+            }
+
             txtPesquisa.SelectAll();
         }
 

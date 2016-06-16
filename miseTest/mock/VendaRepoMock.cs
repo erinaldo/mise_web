@@ -13,7 +13,7 @@ namespace miseTest.mock
 
         public Venda Incluir(Venda v) { return v; }
 
-        public Dictionary<int, decimal> GerarResumoDiario(DateTime data)
+        public Dictionary<int, decimal> GerarResumo(DateTime ini, DateTime fim)
         {
             return new Dictionary<int, decimal> { 
                 { Mock.DINHEIRO.Id, 599.55m },

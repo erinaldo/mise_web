@@ -31,7 +31,7 @@ namespace mise.report
             _vendaRepo = vendaRepo;
             _formaPagamentoRepo = formaPagamentoRepo;
             _lancamentoRepo = lancamentoRepo;
-            _dadosResumo = vendaRepo.GerarResumoDiario(data);
+            _dadosResumo = vendaRepo.GerarResumo(data, data);
 
             _subtotal = (from d in _dadosResumo select d.Value).Sum(x => x);
             _pagamentos = _lancamentoRepo.ObterTotal(data);

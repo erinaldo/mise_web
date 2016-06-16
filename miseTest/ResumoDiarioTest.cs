@@ -26,7 +26,7 @@ namespace miseTest
         [TestMethod]
         public void SubTotal()
         {
-            Dictionary<int, decimal> dadosResumo = repo.GerarResumoDiario(DateTime.Now);
+            Dictionary<int, decimal> dadosResumo = repo.GerarResumo(DateTime.Now, DateTime.Now);
             decimal subTotal = (from d in dadosResumo
                                 select d.Value).Sum(x => x);
             Assert.AreEqual(subTotal, resumo.SubTotal);
@@ -35,7 +35,7 @@ namespace miseTest
         [TestMethod]
         public void Relatorio()
         {
-            Dictionary<int, decimal> dadosResumo = repo.GerarResumoDiario(DateTime.Now);
+            Dictionary<int, decimal> dadosResumo = repo.GerarResumo(DateTime.Now, DateTime.Now);
             decimal subTotal = (from d in dadosResumo
                                 select d.Value).Sum(x => x);
             Assert.AreEqual(subTotal, resumo.SubTotal);

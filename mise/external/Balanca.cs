@@ -38,6 +38,7 @@ namespace mise.external
         {
             if (!_MOCK)
             {
+                FecharConexao();
                 _AlteraModeloBalanca(Convert.ToInt32(MODELO)); // US POP
                 _AlteraModoOperacao(0);
                 AbrirConexao();

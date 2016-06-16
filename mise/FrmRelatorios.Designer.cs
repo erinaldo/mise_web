@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRelatorios));
             this.txtDataIni = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +42,11 @@
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridPagamentos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.gridResumo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPagamentos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDataIni
@@ -103,7 +108,7 @@
             this.gridResumo.AllowUserToAddRows = false;
             this.gridResumo.AllowUserToDeleteRows = false;
             this.gridResumo.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.gridResumo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridResumo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridResumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridResumo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.produto,
@@ -114,7 +119,7 @@
             this.gridResumo.Name = "gridResumo";
             this.gridResumo.ReadOnly = true;
             this.gridResumo.RowHeadersVisible = false;
-            this.gridResumo.Size = new System.Drawing.Size(804, 616);
+            this.gridResumo.Size = new System.Drawing.Size(804, 439);
             this.gridResumo.TabIndex = 29;
             this.gridResumo.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.gridResumo_SortCompare);
             // 
@@ -152,12 +157,48 @@
             this.total.ReadOnly = true;
             this.total.Width = 120;
             // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Forma de Pagamento";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 340;
+            // 
+            // gridPagamentos
+            // 
+            this.gridPagamentos.AllowUserToAddRows = false;
+            this.gridPagamentos.AllowUserToDeleteRows = false;
+            this.gridPagamentos.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.gridPagamentos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gridPagamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPagamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn4});
+            this.gridPagamentos.Location = new System.Drawing.Point(16, 554);
+            this.gridPagamentos.Name = "gridPagamentos";
+            this.gridPagamentos.ReadOnly = true;
+            this.gridPagamentos.RowHeadersVisible = false;
+            this.gridPagamentos.Size = new System.Drawing.Size(485, 148);
+            this.gridPagamentos.TabIndex = 30;
+            this.gridPagamentos.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.gridPagamentos_SortCompare);
+            // 
             // FrmRelatorios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(849, 741);
+            this.Controls.Add(this.gridPagamentos);
             this.Controls.Add(this.gridResumo);
             this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.txtDataFim);
@@ -174,6 +215,7 @@
             this.Text = "Relatório Analítico de Vendas";
             this.Load += new System.EventHandler(this.FrmRelatorios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridResumo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPagamentos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,5 +233,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtd;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridView gridPagamentos;
     }
 }

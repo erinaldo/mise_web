@@ -137,7 +137,7 @@ namespace mise.model
             }
         }
 
-        public Dictionary<int, decimal> GerarResumoDiario(DateTime data)
+        public Dictionary<int, decimal> GerarResumo(DateTime ini, DateTime fim)
         {
             Dictionary<int, decimal> resumo = new Dictionary<int, decimal>();
 
@@ -147,11 +147,12 @@ namespace mise.model
                 cmd.CommandText = "select f.id, sum(p.valor) as total from pagamento p " +
                     "join venda v on v.id = p.id_venda " +
                     "join formapagamento f on f.id = p.id_forma_pagamento " +
-                    "where convert(date, v.data_hora) = @data " +
+                    "where convert(date, v.data_hora) between @ini and @fim " +
                     "group by (f.id); ";
 
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.Add("@data", SqlDbType.Date).Value = data;
+                cmd.Parameters.Add("@ini", SqlDbType.Date).Value = ini;
+                cmd.Parameters.Add("@fim", SqlDbType.Date).Value = fim;
 
                 cmd.Connection = conn;
                 conn.Open();

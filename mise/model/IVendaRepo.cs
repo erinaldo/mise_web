@@ -9,7 +9,7 @@ namespace mise.model
     public interface IVendaRepo
     {
         Venda Incluir(Venda v);
-        Dictionary<int, decimal> GerarResumoDiario(DateTime data);
+        Dictionary<int, decimal> GerarResumo(DateTime ini, DateTime fim);
         Venda Obter(long id);
     }
 }

@@ -33,22 +33,15 @@ namespace mise
             {
                 if (long.TryParse(txtPesquisa.Text, out codigo))
                 {
-                    Produto p = null;
-                    try
-                    {
-                        p = _produtoRepo.Obter(codigo);
-                    }
-                    catch (MiseException)
-                    {
-                    }
+                    Produto p = _produtoRepo.Obter(codigo);
+                    
                     _produtos.Clear();
                     if (p != null)
                     {
                         _produtos.Add(p);
+                        gridProdutos.Rows.Clear();
+                        gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda.ToString("0.00"), p.UnidadeMedida);
                     }
-
-                    gridProdutos.Rows.Clear();
-                    gridProdutos.Rows.Add(p.Codigo, p.Nome, p.PrecoVenda.ToString("0.00"), p.UnidadeMedida);
                 }
                 else
                 {
@@ -72,6 +65,10 @@ namespace mise
                         });
                     }
                 }
+            }
+            catch (MiseException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {

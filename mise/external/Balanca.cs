@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using mise.log;
 
 namespace mise.external
 {
@@ -29,8 +30,10 @@ namespace mise.external
 
         private static string MODELO = Properties.Settings.Default.modeloBalanca;
         private static string PORTA = Properties.Settings.Default.portaBalanca;
+        private Logger _logger;
 
         private Balanca() {
+            _logger = Logger.Instance;
             Init();
         }
 
@@ -38,7 +41,6 @@ namespace mise.external
         {
             if (!_MOCK)
             {
-                FecharConexao();
                 _AlteraModeloBalanca(Convert.ToInt32(MODELO)); // US POP
                 _AlteraModoOperacao(0);
                 AbrirConexao();
@@ -60,6 +62,10 @@ namespace mise.external
             if (!_MOCK)
             {
                 int abriu = _AbrePortaSerial(PORTA);
+                if (abriu != 1)
+                {
+                    _logger.Log("ERRO [LePeso._AbrePortaSerial] - codretorno: " + abriu);
+                }
             }
         }
 
@@ -68,6 +74,10 @@ namespace mise.external
             if (!_MOCK)
             {
                 int fechou = _FechaPortaSerial();
+                if (fechou != 1)
+                {
+                    _logger.Log("ERRO [LePeso._FechaPortaSerial] - codretorno: " + fechou);
+                }
             }
         }
 

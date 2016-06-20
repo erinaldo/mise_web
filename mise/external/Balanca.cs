@@ -41,6 +41,7 @@ namespace mise.external
         {
             if (!_MOCK)
             {
+                FecharConexao();
                 _AlteraModeloBalanca(Convert.ToInt32(MODELO)); // US POP
                 _AlteraModoOperacao(0);
                 AbrirConexao();
@@ -111,6 +112,12 @@ namespace mise.external
 
                 byte[] array = new byte[len];
                 Marshal.Copy(pesoIntPtr, array, 0, len);
+
+                string retornoCompleto = System.Text.Encoding.Default.GetString(array).Trim();
+                if (retornoCompleto.Contains("*"))
+                {
+                    _logger.Log("Erro [LePeso._LePeso] - retorno: " + retornoCompleto);
+                }
 
                 byte[] arrSomentePeso = new byte[6];
                 arrSomentePeso[0] = array[18];

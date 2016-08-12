@@ -276,6 +276,34 @@ namespace miseTest
             Assert.IsFalse(e.Handled);
         }
 
+        [TestMethod]
+        public void OnKeyPress_OnKeyPress_Decimal_MaxLengthReached_NoCommaTyped()
+        {
+            NumTextBoxTest n = new NumTextBoxTest();
+            n.Dec = 2;
+            n.MaxLength = 6;
+            n.Text = "123";
+            KeyPressEventArgs e = new KeyPressEventArgs('1');
+            n.testOnKeyPress(e);
+
+            Assert.IsTrue(e.Handled);
+        }
+
+        [TestMethod]
+        public void OnKeyPress_OnKeyPress_Decimal_MaxLengthNotReached_NoCommaTyped()
+        {
+            NumTextBoxTest n = new NumTextBoxTest();
+            n.Dec = 2;
+            n.MaxLength = 6;
+            n.Text = "12";
+            KeyPressEventArgs e = new KeyPressEventArgs('1');
+            n.testOnKeyPress(e);
+
+            Assert.IsFalse(e.Handled);
+        }
+
+        // TODO: fazer mais testes do onkeypress maxlength
+
         private void testOnTextChanged()
         {
             base.OnTextChanged(EventArgs.Empty);

@@ -256,6 +256,7 @@ namespace mise
             this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValor.Location = new System.Drawing.Point(17, 158);
             this.txtValor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtValor.MaxLength = 7;
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(123, 29);
             this.txtValor.TabIndex = 0;

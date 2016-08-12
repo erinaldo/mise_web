@@ -153,7 +153,7 @@
             this.txtValor.Dec = 2;
             this.txtValor.Location = new System.Drawing.Point(16, 144);
             this.txtValor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtValor.MaxLength = 6;
+            this.txtValor.MaxLength = 7;
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(125, 26);
             this.txtValor.TabIndex = 2;

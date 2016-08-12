@@ -30,7 +30,9 @@ namespace mise.component
                 
                 if (base.SelectionLength < base.Text.Length && 
                     ((e.KeyChar == ',' && index > 0) || 
-                        (char.IsDigit(e.KeyChar) && index >= 0 && index < base.Text.Length - _dec)))
+                        (char.IsDigit(e.KeyChar) && index >= 0 && index < base.Text.Length - _dec) ||
+                        (char.IsDigit(e.KeyChar) && index < 0 && base.Text.Length >= (base.MaxLength - (1 + _dec)))
+                        ))
                 {
                     e.Handled = true;
                     return;

@@ -465,8 +465,6 @@ namespace mise.external
         {
             if (!_MOCK)
             {
-                VerificarConexao();
-
                 string s_cmdTX = "" + Convert.ToChar(27) + Convert.ToChar(119);
                 int retorno = ComandoTX(s_cmdTX, s_cmdTX.Length);
                 if (retorno != 1)
@@ -492,13 +490,13 @@ namespace mise.external
                 switch (status)
                 {
                     case 0:
+                    case 5:
                         ConfiguraModeloImpressora(Convert.ToInt32(MODELO));
                         int retorno = IniciaPorta(PORTA);
                         if (retorno != 1)
                             throw new Exception("Não foi possível conectar com a Impressora!");
                         break;
-                    case 5:
-                        throw new Exception("Impressora com pouco papel!");
+                        
                     case 9:
                         throw new Exception("Tampa da impressora aberta!");
                     case 32:

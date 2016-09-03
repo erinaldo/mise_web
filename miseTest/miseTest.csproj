@@ -57,7 +57,7 @@
     <Compile Include="Mock.cs" />
     <Compile Include="ItemTest.cs" />
     <Compile Include="mock\VendaRepoMock.cs" />
-    <Compile Include="ResumoDiarioTest.cs" />
+    <Compile Include="ResumoTest.cs" />
     <Compile Include="FormaPagamentoTest.cs" />
     <Compile Include="ProdutoRepoTest.cs" />
     <Compile Include="FornecedorRepoTest.cs" />

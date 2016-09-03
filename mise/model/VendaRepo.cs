@@ -303,8 +303,8 @@ namespace mise.model
                     "select v.id, v.data_hora from venda v " +
                     "where convert(date, v.data_hora) between @ini and @fim " +
                     "order by v.data_hora desc; ", conn);
-                cmd.Parameters.Add("@ini", SqlDbType.DateTime).Value = ini;
-                cmd.Parameters.Add("@fim", SqlDbType.DateTime).Value = fim;
+                cmd.Parameters.Add("@ini", SqlDbType.Date).Value = ini;
+                cmd.Parameters.Add("@fim", SqlDbType.Date).Value = fim;
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {

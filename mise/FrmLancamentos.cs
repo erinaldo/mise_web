@@ -25,21 +25,14 @@ namespace mise
         {
             _repo = LancamentoRepo.Instance;
 
-            txtData.Text = DateTime.Today.ToShortDateString();
             carregarGrid();
         }
 
         private void carregarGrid()
         {
             gridLancamentos.Rows.Clear();
-            DateTime d;
-            if (!DateTime.TryParse(txtData.Text, out d))
-            {
-                MessageBox.Show("Data inválida!");
-                d = DateTime.Today;
-                txtData.Text = d.ToShortDateString();
-            }
-            List<Lancamento> lancamentos = _repo.Listar(d);
+            
+            List<Lancamento> lancamentos = _repo.Listar(dtData.Value);
             decimal total = 0;
             foreach (var item in lancamentos)
             {

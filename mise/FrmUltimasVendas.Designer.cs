@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUltimasVendas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtData = new System.Windows.Forms.MaskedTextBox();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolBtnVisualizar = new System.Windows.Forms.ToolStripButton();
             this.gridVendas = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtData = new System.Windows.Forms.DateTimePicker();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVendas)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -55,7 +55,7 @@
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscar.Location = new System.Drawing.Point(207, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(222, 30);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(29, 28);
@@ -72,15 +72,6 @@
             this.label2.Size = new System.Drawing.Size(44, 20);
             this.label2.TabIndex = 24;
             this.label2.Text = "Data";
-            // 
-            // txtData
-            // 
-            this.txtData.Location = new System.Drawing.Point(58, 32);
-            this.txtData.Mask = "00/00/0000";
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(142, 26);
-            this.txtData.TabIndex = 23;
-            this.txtData.ValidatingType = typeof(System.DateTime);
             // 
             // toolStrip
             // 
@@ -133,16 +124,6 @@
             this.gridVendas.TabIndex = 27;
             this.gridVendas.SelectionChanged += new System.EventHandler(this.gridCategorias_SelectionChanged);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.gridVendas);
-            this.groupBox1.Location = new System.Drawing.Point(58, 78);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(496, 475);
-            this.groupBox1.TabIndex = 29;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Vendas";
-            // 
             // id
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -162,11 +143,29 @@
             // Total
             // 
             this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Total.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle1;
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.gridVendas);
+            this.groupBox1.Location = new System.Drawing.Point(58, 78);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(496, 475);
+            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Vendas";
+            // 
+            // dtData
+            // 
+            this.dtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtData.Location = new System.Drawing.Point(58, 32);
+            this.dtData.Name = "dtData";
+            this.dtData.Size = new System.Drawing.Size(142, 26);
+            this.dtData.TabIndex = 40;
             // 
             // FrmUltimasVendas
             // 
@@ -175,11 +174,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(595, 550);
+            this.Controls.Add(this.dtData);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtData);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -203,7 +202,6 @@
 
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox txtData;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton toolBtnVisualizar;
         private System.Windows.Forms.DataGridView gridVendas;
@@ -211,5 +209,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DateTimePicker dtData;
     }
 }

@@ -24,21 +24,12 @@ namespace mise
 
         private void FrmUltimasVendas_Load(object sender, EventArgs e)
         {
-            txtData.Text = DateTime.Today.ToShortDateString();
-
             carregarVendas();
         }
 
         private void carregarVendas()
         {
-            DateTime d;
-            if (!DateTime.TryParse(txtData.Text, out d))
-            {
-                MessageBox.Show("Data inválida!");
-                d = DateTime.Today;
-                txtData.Text = d.ToShortDateString();
-            }
-            _vendas = _vendaRepo.Listar(d, d);
+            _vendas = _vendaRepo.Listar(dtData.Value, dtData.Value);
             gridVendas.Rows.Clear();
 
             foreach (var v in _vendas)

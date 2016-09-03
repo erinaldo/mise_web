@@ -41,9 +41,9 @@
             this.toolBtnNovo = new System.Windows.Forms.ToolStripButton();
             this.toolBtnAlterar = new System.Windows.Forms.ToolStripButton();
             this.toolBtnExcluir = new System.Windows.Forms.ToolStripButton();
-            this.txtData = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.dtData = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.gridLancamentos)).BeginInit();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -177,15 +177,6 @@
             this.toolBtnExcluir.Text = "Excluir";
             this.toolBtnExcluir.Click += new System.EventHandler(this.toolBtnExcluir_Click);
             // 
-            // txtData
-            // 
-            this.txtData.Location = new System.Drawing.Point(73, 30);
-            this.txtData.Mask = "00/00/0000";
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(142, 26);
-            this.txtData.TabIndex = 9;
-            this.txtData.ValidatingType = typeof(System.DateTime);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -206,7 +197,7 @@
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscar.Location = new System.Drawing.Point(222, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(238, 27);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(29, 28);
@@ -214,15 +205,23 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // dtData
+            // 
+            this.dtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtData.Location = new System.Drawing.Point(73, 29);
+            this.dtData.Name = "dtData";
+            this.dtData.Size = new System.Drawing.Size(142, 26);
+            this.dtData.TabIndex = 40;
+            // 
             // FrmLancamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(862, 554);
+            this.Controls.Add(this.dtData);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtData);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label1);
@@ -254,12 +253,12 @@
         private System.Windows.Forms.ToolStripButton toolBtnNovo;
         private System.Windows.Forms.ToolStripButton toolBtnAlterar;
         private System.Windows.Forms.ToolStripButton toolBtnExcluir;
-        private System.Windows.Forms.MaskedTextBox txtData;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DateTimePicker dtData;
     }
 }

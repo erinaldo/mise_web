@@ -563,7 +563,7 @@ namespace mise
         {
             try
             {
-                ResumoDiario resumo = new ResumoDiario(DateTime.Now, _vendaRepo, _formaPagamentoRepo, LancamentoRepo.Instance);
+                Resumo resumo = new Resumo(DateTime.Now, DateTime.Now, _vendaRepo, _formaPagamentoRepo, LancamentoRepo.Instance);
                 Impressora.Imprimir(resumo.Gerar());
                 Impressora.CortarPapel();
             }
@@ -577,11 +577,6 @@ namespace mise
 
                 MessageBox.Show(ee.Message);
             }
-        }
-
-        private void analíticoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new FrmRelatorios().ShowDialog();
         }
 
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -646,6 +641,16 @@ namespace mise
         private void doDiaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new FrmUltimasVendas().ShowDialog();
+        }
+
+        private void porProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrmRelatorioProduto().ShowDialog();
+        }
+
+        private void porFormaDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrmRelatorioFormaPagamento().ShowDialog();
         }
 
     }

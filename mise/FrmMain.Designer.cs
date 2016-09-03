@@ -70,6 +70,7 @@ namespace mise
             this.doDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripResumo = new System.Windows.Forms.ToolStripMenuItem();
+            this.doDiaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.resumoDiarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analíticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSair = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +84,8 @@ namespace mise
             this.label1 = new System.Windows.Forms.Label();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.timerDataHora = new System.Windows.Forms.Timer(this.components);
-            this.doDiaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.porProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.porFormaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridItem)).BeginInit();
             this.grpItem.SuspendLayout();
             this.grpTotal.SuspendLayout();
@@ -484,6 +486,13 @@ namespace mise
             this.toolStripResumo.Size = new System.Drawing.Size(56, 20);
             this.toolStripResumo.Text = "Vendas";
             // 
+            // doDiaToolStripMenuItem1
+            // 
+            this.doDiaToolStripMenuItem1.Name = "doDiaToolStripMenuItem1";
+            this.doDiaToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
+            this.doDiaToolStripMenuItem1.Text = "Do Dia";
+            this.doDiaToolStripMenuItem1.Click += new System.EventHandler(this.doDiaToolStripMenuItem1_Click);
+            // 
             // resumoDiarioToolStripMenuItem
             // 
             this.resumoDiarioToolStripMenuItem.Name = "resumoDiarioToolStripMenuItem";
@@ -493,10 +502,12 @@ namespace mise
             // 
             // analíticoToolStripMenuItem
             // 
+            this.analíticoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.porProdutoToolStripMenuItem,
+            this.porFormaDePagamentoToolStripMenuItem});
             this.analíticoToolStripMenuItem.Name = "analíticoToolStripMenuItem";
             this.analíticoToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.analíticoToolStripMenuItem.Text = "Resumo Analítico";
-            this.analíticoToolStripMenuItem.Click += new System.EventHandler(this.analíticoToolStripMenuItem_Click);
             // 
             // menuItemSair
             // 
@@ -609,12 +620,19 @@ namespace mise
             // 
             this.timerDataHora.Tick += new System.EventHandler(this.timerDataHora_Tick);
             // 
-            // doDiaToolStripMenuItem1
+            // porProdutoToolStripMenuItem
             // 
-            this.doDiaToolStripMenuItem1.Name = "doDiaToolStripMenuItem1";
-            this.doDiaToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
-            this.doDiaToolStripMenuItem1.Text = "Do Dia";
-            this.doDiaToolStripMenuItem1.Click += new System.EventHandler(this.doDiaToolStripMenuItem1_Click);
+            this.porProdutoToolStripMenuItem.Name = "porProdutoToolStripMenuItem";
+            this.porProdutoToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.porProdutoToolStripMenuItem.Text = "Por Produto";
+            this.porProdutoToolStripMenuItem.Click += new System.EventHandler(this.porProdutoToolStripMenuItem_Click);
+            // 
+            // porFormaDePagamentoToolStripMenuItem
+            // 
+            this.porFormaDePagamentoToolStripMenuItem.Name = "porFormaDePagamentoToolStripMenuItem";
+            this.porFormaDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.porFormaDePagamentoToolStripMenuItem.Text = "Por Forma de Pagamento";
+            this.porFormaDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.porFormaDePagamentoToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -708,6 +726,8 @@ namespace mise
         private System.Windows.Forms.Timer timerDataHora;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem doDiaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem porProdutoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem porFormaDePagamentoToolStripMenuItem;
     }
 }
 

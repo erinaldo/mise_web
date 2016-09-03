@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace mise.report
 {
-    public class ResumoDiario
+    public class Resumo
     {
         private IVendaRepo _vendaRepo;
         private IFormaPagamentoRepo _formaPagamentoRepo;
         private ILancamentoRepo _lancamentoRepo;
-        private DateTime _data;
+        private DateTime _dataIni;
+        private DateTime _dataFim;
 
         private StringBuilder _sb = new StringBuilder();
         private Dictionary<int, decimal> _dadosResumo;
@@ -25,16 +26,17 @@ namespace mise.report
         private decimal _total;
         private decimal _totalOutros;
 
-        public ResumoDiario(DateTime data, IVendaRepo vendaRepo, IFormaPagamentoRepo formaPagamentoRepo, ILancamentoRepo lancamentoRepo)
+        public Resumo(DateTime dataIni, DateTime dataFim, IVendaRepo vendaRepo, IFormaPagamentoRepo formaPagamentoRepo, ILancamentoRepo lancamentoRepo)
         {
-            _data = data;
+            _dataIni = dataIni;
+            _dataFim = dataFim;
             _vendaRepo = vendaRepo;
             _formaPagamentoRepo = formaPagamentoRepo;
             _lancamentoRepo = lancamentoRepo;
-            _dadosResumo = vendaRepo.GerarResumo(data, data);
+            _dadosResumo = vendaRepo.GerarResumo(dataIni, dataFim);
 
             _subtotal = (from d in _dadosResumo select d.Value).Sum(x => x);
-            _pagamentos = _lancamentoRepo.ObterTotal(data);
+            _pagamentos = _lancamentoRepo.ObterTotal(dataIni);
             _total = _subtotal - _pagamentos;
             _totalOutros = (from d in _dadosResumo
                             where !_formaPagamentoRepo.Obter(d.Key).IsDinheiro
@@ -78,41 +80,34 @@ namespace mise.report
             return _sb.ToString();
         }
 
-        private ResumoDiario header()
+        private Resumo header()
         {
             _sb.Append("RESUMO DIARIO");
             lineBreak();
-            _sb.Append(_data.ToShortDateString());
+            _sb.Append(_dataIni.ToShortDateString());
             lineBreak();
             return this;
         }
 
-        private ResumoDiario lineSeparator()
+        private Resumo lineSeparator()
         {
             _sb.Append(LINE_SEPARATOR);
             lineBreak();
             return this;
         }
 
-        private ResumoDiario lineBreak()
+        private Resumo lineBreak()
         {
             _sb.Append(LINE_BREAK);
             return this;
         }
 
-        private ResumoDiario total(String tipo, decimal total)
+        private Resumo total(String tipo, decimal total)
         {
             String totalFmt = total.ToString("0.00");
             _sb.Append(tipo).Append(totalFmt.PadLeft(48 - tipo.Length));
             lineBreak();
             return this;
-        }
-
-        public static void Main()
-        {
-            ResumoDiario r = new ResumoDiario(DateTime.Today, VendaRepo.Instance, FormaPagamentoRepo.Instance, LancamentoRepo.Instance);
-            Console.WriteLine(r.Gerar());
-            Console.ReadLine();
         }
     }
 }

@@ -10,17 +10,17 @@ using System.Linq;
 namespace miseTest
 {
     [TestClass]
-    public class ResumoDiarioTest
+    public class ResumoTest
     {
 
         private IVendaRepo repo;
-        private ResumoDiario resumo;
+        private Resumo resumo;
 
         [TestInitialize]
         public void Init()
         {
             repo = new VendaRepoMock();
-            resumo = new ResumoDiario(DateTime.Now, repo, FormaPagamentoRepo.Instance, LancamentoRepo.Instance);
+            resumo = new Resumo(DateTime.Now, DateTime.Now, repo, FormaPagamentoRepo.Instance, LancamentoRepo.Instance);
         }
 
         [TestMethod]

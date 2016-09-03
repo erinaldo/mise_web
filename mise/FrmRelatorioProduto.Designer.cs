@@ -1,6 +1,6 @@
 ﻿namespace mise
 {
-    partial class FrmRelatorios
+    partial class FrmRelatorioProduto
     {
         /// <summary>
         /// Required designer variable.
@@ -30,61 +30,19 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRelatorios));
-            this.txtDataIni = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtDataFim = new System.Windows.Forms.MaskedTextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRelatorioProduto));
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.gridResumo = new System.Windows.Forms.DataGridView();
             this.produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridPagamentos = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtFim = new System.Windows.Forms.DateTimePicker();
+            this.dtIni = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.gridResumo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPagamentos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtDataIni
-            // 
-            this.txtDataIni.Location = new System.Drawing.Point(16, 42);
-            this.txtDataIni.Mask = "00/00/0000";
-            this.txtDataIni.Name = "txtDataIni";
-            this.txtDataIni.Size = new System.Drawing.Size(120, 26);
-            this.txtDataIni.TabIndex = 25;
-            this.txtDataIni.ValidatingType = typeof(System.DateTime);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Data Inicial";
-            // 
-            // txtDataFim
-            // 
-            this.txtDataFim.Location = new System.Drawing.Point(158, 42);
-            this.txtDataFim.Mask = "00/00/0000";
-            this.txtDataFim.Name = "txtDataFim";
-            this.txtDataFim.Size = new System.Drawing.Size(120, 26);
-            this.txtDataFim.TabIndex = 27;
-            this.txtDataFim.ValidatingType = typeof(System.DateTime);
-            this.txtDataFim.Enter += new System.EventHandler(this.txtDataFim_Enter);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(154, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 20);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Data Final";
             // 
             // btnVisualizar
             // 
@@ -94,7 +52,7 @@
             this.btnVisualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnVisualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVisualizar.ForeColor = System.Drawing.Color.Black;
-            this.btnVisualizar.Location = new System.Drawing.Point(320, 38);
+            this.btnVisualizar.Location = new System.Drawing.Point(365, 34);
             this.btnVisualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Size = new System.Drawing.Size(112, 35);
@@ -119,7 +77,7 @@
             this.gridResumo.Name = "gridResumo";
             this.gridResumo.ReadOnly = true;
             this.gridResumo.RowHeadersVisible = false;
-            this.gridResumo.Size = new System.Drawing.Size(804, 439);
+            this.gridResumo.Size = new System.Drawing.Size(804, 587);
             this.gridResumo.TabIndex = 29;
             this.gridResumo.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.gridResumo_SortCompare);
             // 
@@ -157,53 +115,52 @@
             this.total.ReadOnly = true;
             this.total.Width = 120;
             // 
-            // dataGridViewTextBoxColumn4
+            // label1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Total";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 120;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Data Inicial";
             // 
-            // dataGridViewTextBoxColumn1
+            // label2
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Forma de Pagamento";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 340;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(182, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Data Final";
             // 
-            // gridPagamentos
+            // dtFim
             // 
-            this.gridPagamentos.AllowUserToAddRows = false;
-            this.gridPagamentos.AllowUserToDeleteRows = false;
-            this.gridPagamentos.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.gridPagamentos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.gridPagamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPagamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn4});
-            this.gridPagamentos.Location = new System.Drawing.Point(16, 554);
-            this.gridPagamentos.Name = "gridPagamentos";
-            this.gridPagamentos.ReadOnly = true;
-            this.gridPagamentos.RowHeadersVisible = false;
-            this.gridPagamentos.Size = new System.Drawing.Size(485, 148);
-            this.gridPagamentos.TabIndex = 30;
-            this.gridPagamentos.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.gridPagamentos_SortCompare);
+            this.dtFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFim.Location = new System.Drawing.Point(186, 42);
+            this.dtFim.Name = "dtFim";
+            this.dtFim.Size = new System.Drawing.Size(142, 26);
+            this.dtFim.TabIndex = 41;
+            // 
+            // dtIni
+            // 
+            this.dtIni.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtIni.Location = new System.Drawing.Point(16, 42);
+            this.dtIni.Name = "dtIni";
+            this.dtIni.Size = new System.Drawing.Size(135, 26);
+            this.dtIni.TabIndex = 40;
             // 
             // FrmRelatorios
             // 
+            this.AcceptButton = this.btnVisualizar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(849, 741);
-            this.Controls.Add(this.gridPagamentos);
+            this.ClientSize = new System.Drawing.Size(849, 733);
+            this.Controls.Add(this.dtFim);
+            this.Controls.Add(this.dtIni);
             this.Controls.Add(this.gridResumo);
             this.Controls.Add(this.btnVisualizar);
-            this.Controls.Add(this.txtDataFim);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDataIni);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -215,7 +172,6 @@
             this.Text = "Relatório Analítico de Vendas";
             this.Load += new System.EventHandler(this.FrmRelatorios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridResumo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPagamentos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,18 +179,15 @@
 
         #endregion
 
-        private System.Windows.Forms.MaskedTextBox txtDataIni;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox txtDataFim;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnVisualizar;
         private System.Windows.Forms.DataGridView gridResumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtd;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridView gridPagamentos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtFim;
+        private System.Windows.Forms.DateTimePicker dtIni;
     }
 }

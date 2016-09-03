@@ -32,11 +32,9 @@ namespace mise
             _lancamentoRepo = LancamentoRepo.Instance;
 
             carregar();
-            txtData.Text = DateTime.Today.ToShortDateString();
-
+            
             if (_lancamento.Id != 0)
             {
-                txtData.Text = _lancamento.Data.ToShortDateString();
                 cbCategoria.SelectedItem = _lancamento.Categoria;
                 txtDescricao.Text = _lancamento.Descricao;
                 txtValor.Text = _lancamento.Valor.ToString("0.00");
@@ -68,12 +66,7 @@ namespace mise
             try
             {
                 _lancamento.Categoria = cbCategoria.SelectedItem as Categoria;
-                DateTime d;
-                if (!DateTime.TryParse(txtData.Text, out d))
-                {
-                    throw new Exception("Data inválida!");
-                }
-                _lancamento.Data = Convert.ToDateTime(d);
+                _lancamento.Data = dtData.Value;
                 _lancamento.Descricao = txtDescricao.Text;
 
                 decimal valor;

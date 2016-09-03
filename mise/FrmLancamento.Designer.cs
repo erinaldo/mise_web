@@ -39,8 +39,8 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.fadingLabel = new mise.component.FadingLabel();
             this.txtValor = new mise.component.NumTextBox();
-            this.txtData = new System.Windows.Forms.MaskedTextBox();
             this.btFechar = new System.Windows.Forms.Button();
+            this.dtData = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -158,15 +158,6 @@
             this.txtValor.Size = new System.Drawing.Size(125, 26);
             this.txtValor.TabIndex = 2;
             // 
-            // txtData
-            // 
-            this.txtData.Location = new System.Drawing.Point(16, 32);
-            this.txtData.Mask = "00/00/0000";
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(125, 26);
-            this.txtData.TabIndex = 23;
-            this.txtData.ValidatingType = typeof(System.DateTime);
-            // 
             // btFechar
             // 
             this.btFechar.BackColor = System.Drawing.SystemColors.Window;
@@ -180,6 +171,14 @@
             this.btFechar.Text = "Fechar";
             this.btFechar.UseVisualStyleBackColor = false;
             // 
+            // dtData
+            // 
+            this.dtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtData.Location = new System.Drawing.Point(16, 32);
+            this.dtData.Name = "dtData";
+            this.dtData.Size = new System.Drawing.Size(142, 26);
+            this.dtData.TabIndex = 40;
+            // 
             // FrmLancamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -187,8 +186,8 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btFechar;
             this.ClientSize = new System.Drawing.Size(483, 366);
+            this.Controls.Add(this.dtData);
             this.Controls.Add(this.btFechar);
-            this.Controls.Add(this.txtData);
             this.Controls.Add(this.fadingLabel);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnNovaCategoria);
@@ -226,7 +225,7 @@
         private System.Windows.Forms.Button btnNovaCategoria;
         private System.Windows.Forms.Button btnSalvar;
         private component.FadingLabel fadingLabel;
-        private System.Windows.Forms.MaskedTextBox txtData;
         private System.Windows.Forms.Button btFechar;
+        private System.Windows.Forms.DateTimePicker dtData;
     }
 }

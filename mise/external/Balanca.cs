@@ -11,7 +11,7 @@ namespace mise.external
     public class Balanca
     {
         private static Balanca _INSTANCE;
-        private static bool _MOCK = Properties.Settings.Default.balancaMock;
+        private static bool _MOCK = !Properties.Settings.Default.producao;
         
         [DllImport("LePeso.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr _LePeso();

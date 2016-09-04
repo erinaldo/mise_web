@@ -97,37 +97,10 @@ namespace mise.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool balancaMock {
-            get {
-                return ((bool)(this["balancaMock"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool impressoraMock {
-            get {
-                return ((bool)(this["impressoraMock"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("mise")]
         public string localAppDir {
             get {
                 return ((string)(this["localAppDir"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool backupEnabled {
-            get {
-                return ((bool)(this["backupEnabled"]));
             }
         }
         
@@ -139,6 +112,15 @@ namespace mise.Properties {
         public string miseConn {
             get {
                 return ((string)(this["miseConn"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool producao {
+            get {
+                return ((bool)(this["producao"]));
             }
         }
     }

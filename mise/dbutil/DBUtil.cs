@@ -18,7 +18,7 @@ namespace mise.dbutil
     public class DBUtil
     {
         public static string CONN = Properties.Settings.Default.miseConn;
-        public static bool BACKUP_ENABLED = Properties.Settings.Default.backupEnabled;
+        public static bool BACKUP_ENABLED = Properties.Settings.Default.producao;
 
         private static Logger _logger = Logger.Instance;
 

@@ -406,7 +406,7 @@ namespace mise.external
         private static string PORTA = Properties.Settings.Default.portaImpressora;
         private static string MODELO = Properties.Settings.Default.modeloImpressora;
 
-        private static bool _MOCK = Properties.Settings.Default.impressoraMock;
+        private static bool _MOCK = !Properties.Settings.Default.producao;
 
         private Impressora()
         {

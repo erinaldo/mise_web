@@ -84,7 +84,17 @@ namespace mise.report
         {
             _sb.Append("RESUMO DIARIO");
             lineBreak();
-            _sb.Append(_dataIni.ToShortDateString());
+            if (_dataIni.Equals(_dataFim))
+            {
+                _sb.Append(_dataIni.ToShortDateString());
+            }
+            else
+            {
+                _sb.Append("DE ")
+                    .Append(_dataIni.ToShortDateString())
+                    .Append(" A ")
+                    .Append(_dataFim.ToShortDateString());
+            }
             lineBreak();
             return this;
         }

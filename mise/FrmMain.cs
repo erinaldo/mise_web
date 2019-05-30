@@ -18,6 +18,7 @@ using mise.dbutil;
 using System.Threading;
 using System.IO;
 using System.Reflection;
+using mise.config;
 
 namespace mise
 {
@@ -51,6 +52,7 @@ namespace mise
 
             this.FONT_BOLD = new Font(this.Font, FontStyle.Bold);
             this.FONT_REGULAR = new Font(this.Font, FontStyle.Regular);
+            
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -80,6 +82,7 @@ namespace mise
 
             timerDataHora.Interval = 1000;
             timerDataHora.Start();
+            
         }
 
         private void inicializar()
@@ -581,9 +584,6 @@ namespace mise
 
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            _balanca.FecharConexao();
-            Impressora.FecharConexao();
-
             try
             {
                 _logger.Log("backup - iniciando");
@@ -596,6 +596,28 @@ namespace mise
                 _logger.Log("backup - erro");
                 _logger.Log(ee);
             }
+
+            _logger.Log("fechando mise");
+            try
+            {
+                _balanca.FecharConexao();
+                _logger.Log("fechou conexao com balança");
+            } catch (Exception ee)
+            {
+                _logger.Log("erro ao fechar conexão com a balança.");
+                _logger.Log(ee);
+            }
+
+            try
+            {
+                Impressora.FecharConexao();
+                _logger.Log("fechou conexao com impressora");
+            } catch (Exception ee)
+            {
+                _logger.Log("erro ao fechar conexão com a impressora.");
+                _logger.Log(ee);
+            }
+
 
             this.Invoke((MethodInvoker)delegate
             {

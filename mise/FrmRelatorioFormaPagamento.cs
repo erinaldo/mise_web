@@ -88,8 +88,15 @@ namespace mise
         {
             if (_dataIni != null && _dataFim != null)
             {
-                Impressora.Instance.Imprimir(new Resumo(_dataIni, _dataFim, _vendaRepo, _formaPagamentoRepo, LancamentoRepo.Instance).Gerar());
-                Impressora.Instance.CortarPapel();
+                try
+                {
+                    Impressora.Instance.Imprimir(new Resumo(_dataIni, _dataFim, _vendaRepo, _formaPagamentoRepo, LancamentoRepo.Instance).Gerar());
+                    Impressora.Instance.CortarPapel();
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show(ee.Message);
+                }
             }
         }
     }

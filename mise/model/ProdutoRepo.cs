@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Threading;
 using System.Collections.Concurrent;
 using mise.exception;
+using mise.log;
 
 namespace mise.model
 {
@@ -20,7 +21,10 @@ namespace mise.model
 
         public EventHandler Changed;
 
+        private Logger _logger;
+
         private ProdutoRepo() : base() {
+            _logger = Logger.Instance;
             Carregar();
         }
 
@@ -249,6 +253,8 @@ namespace mise.model
                 }
                 catch (Exception e)
                 {
+                    _logger.Log("Erro ao carregar produtos: ");
+                    _logger.Log(e);
                     throw new MiseException(e.Message, e);
                 }
             }

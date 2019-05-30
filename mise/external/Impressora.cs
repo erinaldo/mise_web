@@ -6,6 +6,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using mise.log;
+using mise.config;
 
 namespace mise.external
 {
@@ -399,17 +401,18 @@ namespace mise.external
         #endregion
 
         private static Impressora _INSTANCE;
+        
+        private Logger _logger;
 
-        private VendaRepo _vendaRepo = VendaRepo.Instance;
-        private FormaPagamentoRepo _formaPagamentoRepo = FormaPagamentoRepo.Instance;
-
-        private static string PORTA = Properties.Settings.Default.portaImpressora;
+        private static string PORTA = Config.Instance.PortaImpressora;
         private static string MODELO = Properties.Settings.Default.modeloImpressora;
 
         private static bool _MOCK = !Properties.Settings.Default.producao;
 
         private Impressora()
         {
+            _logger = Logger.Instance;
+            Console.WriteLine(PORTA);
             if (!_MOCK)
             {
                 ConfiguraModeloImpressora(Convert.ToInt32(MODELO));
@@ -449,9 +452,7 @@ namespace mise.external
         public void AbrirGaveta()
         {
             if (!_MOCK)
-            {
-                VerificarConexao();
-                
+            {                
                 string s_cmdTX = "" + Convert.ToChar(27) + Convert.ToChar(118) + Convert.ToChar(140);
                 int retorno = ComandoTX(s_cmdTX, s_cmdTX.Length);
                 if (retorno != 1)
@@ -490,13 +491,13 @@ namespace mise.external
                 switch (status)
                 {
                     case 0:
-                    case 5:
                         ConfiguraModeloImpressora(Convert.ToInt32(MODELO));
                         int retorno = IniciaPorta(PORTA);
                         if (retorno != 1)
                             throw new Exception("Não foi possível conectar com a Impressora!");
                         break;
                         
+                    case 5:
                     case 9:
                         throw new Exception("Tampa da impressora aberta!");
                     case 32:
@@ -511,12 +512,25 @@ namespace mise.external
         {
             if (!_MOCK)
             {
-                VerificarConexao();
+                _logger.Log("vai ler status da balança");
+                int status = Le_Status();
+                _logger.Log(status.ToString());
 
-                int retorno = FechaPorta();
-                if (retorno != 1)
+                /*
+                    0 Erro de comunicação
+                    5 Impressora com pouco papel
+                    9 Tampa aberta
+                    24 Impressora "ONLINE"
+                    32 Impressora sem papel
+                 */
+                if (status == 24)
                 {
-                    FechaPorta(); // tenta duas vezes :)
+                    int retorno = FechaPorta();
+                    if (retorno != 1)
+                    {
+                        FechaPorta(); // tenta duas vezes :)
+
+                    }
                 }
             }
         }

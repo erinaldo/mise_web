@@ -82,7 +82,7 @@ namespace mise.report
 
         private Resumo header()
         {
-            _sb.Append("RESUMO DIARIO");
+            _sb.Append("RESUMO");
             lineBreak();
             if (_dataIni.Equals(_dataFim))
             {

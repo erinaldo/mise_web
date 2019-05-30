@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using mise.config;
 using mise.log;
 
 namespace mise.external
@@ -29,9 +30,9 @@ namespace mise.external
         public static extern void _AlteraModoOperacao(int modo);
 
         private static string MODELO = Properties.Settings.Default.modeloBalanca;
-        private static string PORTA = Properties.Settings.Default.portaBalanca;
+        private static string PORTA = Config.Instance.PortaBalanca;
         private Logger _logger;
-
+        
         private Balanca() {
             _logger = Logger.Instance;
             Init();
@@ -39,6 +40,7 @@ namespace mise.external
 
         private void Init()
         {
+            Console.WriteLine(PORTA);
             if (!_MOCK)
             {
                 FecharConexao();

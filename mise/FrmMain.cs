@@ -1,24 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using mise.model;
-using System.Data.SqlClient;
-using System.Configuration;
 using mise.external;
 using mise.report;
 using mise.exception;
 using mise.log;
 using mise.dbutil;
-using System.Threading;
-using System.IO;
-using System.Reflection;
-using mise.config;
 
 namespace mise
 {
@@ -45,11 +34,7 @@ namespace mise
             InitializeComponent();
 
             _logger = Logger.Instance;
-
-            _catalogo = ProdutoRepo.Instance;
-            _vendaRepo = VendaRepo.Instance;
-            _formaPagamentoRepo = FormaPagamentoRepo.Instance;
-
+            
             this.FONT_BOLD = new Font(this.Font, FontStyle.Bold);
             this.FONT_REGULAR = new Font(this.Font, FontStyle.Regular);
             
@@ -59,6 +44,11 @@ namespace mise
         {
             _logger.Log("iniciou");
 
+            DBUtil.Backup();
+
+            _catalogo = ProdutoRepo.Instance;
+            _vendaRepo = VendaRepo.Instance;
+            _formaPagamentoRepo = FormaPagamentoRepo.Instance;
             inicializar();
             try
             {
@@ -82,7 +72,6 @@ namespace mise
 
             timerDataHora.Interval = 1000;
             timerDataHora.Start();
-            
         }
 
         private void inicializar()
@@ -584,18 +573,18 @@ namespace mise
 
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            try
-            {
-                _logger.Log("backup - iniciando");
-                DBUtil.Backup();
-                _logger.Log("backup - concluido");
+            //try
+            //{
+            //    _logger.Log("backup - iniciando");
+            //    DBUtil.Backup();
+            //    _logger.Log("backup - concluido");
 
-            }
-            catch (Exception ee)
-            {
-                _logger.Log("backup - erro");
-                _logger.Log(ee);
-            }
+            //}
+            //catch (Exception ee)
+            //{
+            //    _logger.Log("backup - erro");
+            //    _logger.Log(ee);
+            //}
 
             _logger.Log("fechando mise");
             try
